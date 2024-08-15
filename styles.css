@@ -5,7 +5,7 @@ html, body {
 }
 
 #canvaEmbed {
-    position: relative; /* Fija el div a la ventana del navegador */
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
