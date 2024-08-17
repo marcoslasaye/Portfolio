@@ -103,6 +103,10 @@
     border: 1px solid #ccc;
 }
 
+.project:hover{
+    color: #444;
+}
+
 .project img {
     width: 100%;
     min-height: 180px;
