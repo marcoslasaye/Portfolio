@@ -99,6 +99,11 @@
     align-items: start;
 }
 
+#CV{ /* CV esta dentro de #projects{} en el HTML */
+    display: flex;
+    justify-content: center;
+}
+
 .project {
 
     margin-bottom: 25px;
