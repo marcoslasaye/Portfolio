@@ -71,6 +71,9 @@
     color: #444;
     padding: 15px;
     transition: all 300ms;
+    width: max-content; /* Ajusta el About Me y Maximiza su espacio */
+    display: inline-grid;
+    
 }
 
 #menu a:hover {
