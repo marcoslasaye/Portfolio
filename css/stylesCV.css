@@ -96,15 +96,18 @@
     /* display: grid;
     grid-template-columns: repeat(auto-fill, 255px);
     grid-gap: 20px;
-    align-items: start; */
+    align-items: start;
+    --------------------
+    display: grid;
+    place-items: center; */
     display: flex;
-    justify-content: center;
+    justify-content:center;
 } 
 
-/* #CV{ CV esta dentro de #projects{} en el HTML 
-    display: flex;
-    justify-content: center;
-} */
+#CV{ /* CV esta dentro de #projects{} en el HTML */
+    width: 100%;
+    height: auto;
+} 
 
 .project {
 
