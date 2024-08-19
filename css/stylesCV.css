@@ -19,7 +19,8 @@
 
 #header {
     display: grid;
-    grid-template-columns: 66% 30%;
+    grid-template-columns: 55% 35%;
+    gap: 40px;
     align-items: center;
 
     width: 100%;
@@ -61,10 +62,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-
+    gap: 14px;
     height: 100%;
     list-style: none;
 }
+
 
 #menu a {
     text-transform: uppercase;
