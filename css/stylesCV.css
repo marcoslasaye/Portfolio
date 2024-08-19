@@ -107,7 +107,11 @@
 #CV{ /* CV esta dentro de #projects{} en el HTML */
     width: 100%;
     height: auto;
-} 
+    display: grid;
+    place-items: center;
+}
+
+
 
 .project {
 
