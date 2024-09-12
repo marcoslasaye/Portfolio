@@ -19,7 +19,7 @@
 
 #header {
     display: grid;
-    grid-template-columns: 55% 35%;
+    grid-template-columns: 55% 40%;
     gap: 40px;
     align-items: center;
 
