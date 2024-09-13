@@ -115,12 +115,12 @@
     transform: translateY(-5px); /* Eleva el proyecto ligeramente */
 }
 
-
 .project img {
-    width: 100%;
-    min-height: 180px;
-    border-bottom: 1px solid #ccc;
-}
+	width: 100%;
+	min-height: 180px;
+	border-bottom: 1px solid #ccc;
+	max-height: 180px;
+} 
 
 .project-info {
     padding: 10px;

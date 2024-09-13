@@ -132,6 +132,11 @@
 
 
 .project img {
+	width: 100%;
+	min-height: 180px;
+	border-bottom: 1px solid #ccc;
+	max-height: 180px;
+} {
     width: 100%;
     min-height: 180px;
     border-bottom: 1px solid #ccc;
