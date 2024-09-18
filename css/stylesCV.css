@@ -71,6 +71,7 @@
 #menu a {
     text-transform: uppercase;
     color: #444;
+    background-color: #ccc;
     padding: 15px;
     transition: all 300ms;
     width: max-content; /* Ajusta el About Me y Maximiza su espacio */
@@ -79,8 +80,8 @@
 }
 
 #menu a:hover {
-    background: #ccc;
-    color: white;
+    background: #444;
+    color: #eee;
 }
 
 #content {
