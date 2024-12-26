@@ -229,6 +229,17 @@
         text-align: center;
     }
 
+    #menu > ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 56px;
+        height: 100%;
+        list-style: none;
+    }
+
     #content {
         display: grid;
         grid-template-columns: 1fr;
