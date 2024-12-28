@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -21,6 +21,24 @@
         body {
             overscroll-behavior: none;
         }
+
+        .animated-div {
+            background-color: #eab308;
+            border-radius: 15px;
+            padding: 20px;
+            transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .animated-div:hover {
+            background-color: #15803d;
+            /* Verde semáforo */
+            transform: scale3d(1.12, 1.12, 1.12);
+        }
+
+        .initial-animation {
+            background-color: #15803d;
+            transform: scale3d(1.12, 1.12, 1.12);
+        }
     </style>
 </head>
 
@@ -31,12 +49,17 @@
                 <img src="img/favicon.ico" alt="Marcos Lopez Sapitri Logo" class="h-8">
             </a>
             <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-white hover:text-gray-400">Projects</a>
-                <a href="Designs.html" class="text-white hover:text-gray-400">Designs</a>
-                <a href="AboutMe.html" class="text-white hover:text-gray-400">About Me</a>
-                <a href="personalCV.html" class="text-white hover:text-gray-400">CV</a>
+                <a href="index.html"
+                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">Projects</a>
+                <a href="Designs.html"
+                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">Designs</a>
+                <a href="AboutMe.html"
+                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">About
+                    Me</a>
+                <a href="personalCV.html"
+                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">CV</a>
                 <a href="https://linktr.ee/marcoslasaye" target="_blank"
-                    class="text-white hover:text-gray-400">Contact</a>
+                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">Contact</a>
             </nav>
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
@@ -45,6 +68,7 @@
             </div>
         </div>
     </header>
+
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
         <nav class="flex flex-col space-y-4 p-4">
             <a href="index.html" class="text-gray-800 hover:text-gray-600">Projects</a>
@@ -55,13 +79,19 @@
         </nav>
     </div>
     <main class="container mx-auto p-4">
-        <section class="text-center py-16 bg-cover bg-center">
-            <h1 class="text-4xl font-bold mb-4 text-white">Creative Professional</h1>
-            <p class="text-xl text-gray-200 mb-8">Showcasing various projects in design, marketing, and content
-                creation.</p>
-            <a href="AboutMe.html"
-                class="inline-block bg-yellow-500 text-white py-2 px-4 rounded-full hover:bg-yellow-600">Explore
-                More</a>
+        <section class="text-center py-16 bg-cover bg-center"
+            style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+
+            <div class="animated-div" id="animatedDiv">
+                <h1 class="text-4xl font-bold mb-4 text-white">Marcos Lopez Sapitri - Creative Professional</h1>
+                <p class="text-xl font-bold italic text-white mb-8">Showcasing various projects in design, marketing,
+                    and content creation.</p>
+            </div>
+
+            <a href="AboutMe.html" id="animatedDiv2" class="animated-div inline-block bg-yellow-500 text-white py-2 
+                px-4 rounded-full hover:bg-green-700">
+                Explore More
+            </a>
         </section>
         <section class="py-16">
             <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
@@ -178,6 +208,24 @@
             <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
         </div>
     </footer>
+
+<script>
+    window.addEventListener('load', function () {
+        // Animación para el primer div
+        const animatedDiv = document.getElementById('animatedDiv');
+        animatedDiv.classList.add('initial-animation');
+        setTimeout(() => {
+            animatedDiv.classList.remove('initial-animation');
+        }, 1000);
+
+        // Animación para el segundo div
+        const animatedDiv2 = document.getElementById('animatedDiv2');
+        animatedDiv2.classList.add('initial-animation');
+        setTimeout(() => {
+            animatedDiv2.classList.remove('initial-animation');
+        }, 1000);
+    });
+</script>
 </body>
 
 </html>
