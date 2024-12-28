@@ -2,211 +2,183 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcos Lopez Sapitri - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="description"
+        content="Marcos Lopez Sapitri is a creative professional showcasing various projects in design, marketing, and content creation.">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html,
+        body {
+            overscroll-behavior: none;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Inicio container -->
-    <div id="container">
-
-        <!--Inicio Cabecera-->
-        <header id="header">
-            <div class="logo">
-                <h1>Portfolio</h1>
-            </div>
-
-            <nav id="menu">
-                <ul>
-                    <li> <a href="index.html">Projects</a></li> <!-- the index.html is the page of Projects-->
-                    <li> <a href="AboutMe.html" target="_blank">About Me</a></li>
-                    <li> <a target="_blank" href="https://linktr.ee/marcoslasaye">Contact</a></li>
-
-                </ul>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-black shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="/" class="text-2xl font-bold text-gray-800">
+                <img src="img/favicon.ico" alt="Marcos Lopez Sapitri Logo" class="h-8">
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:text-gray-400">Projects</a>
+                <a href="Designs.html" class="text-white hover:text-gray-400">Designs</a>
+                <a href="AboutMe.html" class="text-white hover:text-gray-400">About Me</a>
+                <a href="personalCV.html" class="text-white hover:text-gray-400">CV</a>
+                <a href="https://linktr.ee/marcoslasaye" target="_blank"
+                    class="text-white hover:text-gray-400">Contact</a>
             </nav>
-        </header>
-        <!--Fin Cabecera-->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+        <nav class="flex flex-col space-y-4 p-4">
+            <a href="index.html" class="text-gray-800 hover:text-gray-600">Projects</a>
+            <a href="AboutMe.html" class="text-gray-800 hover:text-gray-600">About Me</a>
+            <a href="personalCV.html" class="text-gray-800 hover:text-gray-600">CV</a>
+            <a href="https://linktr.ee/marcoslasaye" target="_blank"
+                class="text-gray-800 hover:text-gray-600">Contact</a>
+        </nav>
+    </div>
+    <main class="container mx-auto p-4">
+        <section class="text-center py-16 bg-cover bg-center"
+            style="background-image: url('img/marcoslasaye_profile.png');">
+            <h1 class="text-4xl font-bold mb-4 text-white">Creative Professional</h1>
+            <p class="text-xl text-gray-200 mb-8">Showcasing various projects in design, marketing, and content
+                creation.</p>
+            <a href="AboutMe.html"
+                class="inline-block bg-yellow-500 text-white py-2 px-4 rounded-full hover:bg-yellow-600">Explore
+                More</a>
+        </section>
+        <section class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://meliwood.my.canva.site/" target="_blank">
+                        <img src="img/MeliwoodBali_Logo.png" alt="Meliwood Furniture & Decor"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Meliwood Furniture & Decor</h3>
+                            <p class="text-gray-600">Link Page</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://linktr.ee/nuevaideamkt" target="_blank">
+                        <img src="img/NuevaIdeaMKT_Logo.png" alt="Nueva Idea Marketing"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Nueva Idea Marketing</h3>
+                            <p class="text-gray-600">Link Page</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://1drv.ms/f/s!AiFKf3FzCzke4RgTIXDag5gOH9t3?e=0WyZQD" target="_blank">
+                        <img src="img/Content_Marketing.png" alt="Calendar Content Marketing"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">2 Content Calendar Examples + Marketing Docs and
+                                Strategies</h3>
+                            <p class="text-gray-600">One Drive</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://marcosinbali.blogspot.com/" target="_blank">
+                        <img src="img/Travel_Blog_Logo.png" alt="Marcoslasaye Bali Travel Blog"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Marcoslasaye in Bali</h3>
+                            <p class="text-gray-600">Travel Blog</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://1drv.ms/b/c/247835b12b0b4e59/EUwOajLvOZBAim91I7q0GWEBZXjf339wjeMyeGsvPqtIDg?e=BZE2MC"
+                        target="_blank">
+                        <img src="img/Archipielago.jpg" alt="Property in Bali Presentation"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Property in Bali - Presentation</h3>
+                            <p class="text-gray-600">PDF - One Drive</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://www.canva.com/design/DAGOQzxKFKQ/hvk8Hgz_ZyY1xRCE0dHUHw/watch?utm_content=DAGOQzxKFKQ&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+                        target="_blank">
+                        <img src="img/AerialView_BlueCoralKarimunjawa_min.jpg" alt="Aerial View Blue Coral Karimunjawa"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Blue Coral Karimunjawa</h3>
+                            <p class="text-gray-600">Leasehold Project (English)</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://linktr.ee/Bamboo.Oasis.Bali" target="_blank">
+                        <img src="img/Banner-Bamboo-Oasis-1x1mt_page-0001.jpg" alt="Bamboo Oasis Resort - Bali"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Bamboo Oasis Resort - Bali</h3>
+                            <p class="text-gray-600">Resort Online Presence</p>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://1drv.ms/f/s!AiFKf3FzCzke4Q8ogHGRq9zeRkxe?e=8gQutD" target="_blank">
+                        <img src="img/Sunrise_Furniture_Logo.jpg" alt="Sunrise Furniture Logo"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Furniture & Interior Design</h3>
+                            <p class="text-gray-600">Packing Lists, Accounting, etc... (One Drive)</p>
+                        </div>
+                    </a>
+                </div>
 
-        <!--Inicio contenido-->
-        <section id="content">
-
-            <aside id="aside">
-                <h2>What do you want to see?</h2>
-                <ul>
-                    <li>
-                        <a href="personalCV.html">CV</a>
-                    </li>
-
-                    <li>
-                        <a target="_blank"
-                            href="https://1drv.ms/f/s!AiFKf3FzCzke01_U7YaRQrkHZzWz?e=hdHeuI">Certificates</a>
-                    </li>
-
-                    <li>
-                        <a href="Designs.html">Designs</a>
-                    </li>
-
-                    <li>
-                        <a href="https://1drv.ms/f/s!AiFKf3FzCzke4V6yhwshsao4rxOK?e=DHFg0c" target="_blank"> Content
-                            Videos </a>
-                    </li>
-                </ul>
-            </aside>
-
-            <div id="projects">
-
-                <article class="project" onclick="window.open('https://meliwood.my.canva.site/', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/MeliwoodBali_Logo.png" alt="" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="https://meliwood.my.canva.site/" target="_blank">
-                            Meliwood Furniture & Decor</a>
-                        <p>Link Page</p>
-                    </div>
-
-                </article>
-
-                <article class="project" id="NuevaIdeaMkt"
-                    onclick="window.open('https://linktr.ee/nuevaideamkt', '_blank');" style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/NuevaIdeaMkt_Logo.png" alt="Nueva Idea Mkt Logo" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="https://linktr.ee/nuevaideamkt?utm_source=linktree_profile_share&ltsid=1cf9457a-0e25-4e88-a105-1768bebcd13e"
-                            target="_blank">Nueva Idea Mkt</a>
-                        <p> Online Marketing Agency (Spanish) </p>
-                    </div>
-                </article>
-
-                <article class="project"
-                    onclick="window.open('https://1drv.ms/f/s!AiFKf3FzCzke4RgTIXDag5gOH9t3?e=0WyZQD', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/Content_Marketing.png" alt="" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="https://1drv.ms/f/s!AiFKf3FzCzke4RgTIXDag5gOH9t3?e=0WyZQD">2 Content Calendars Examples
-                            + Content
-                            Marketing Resources (Spanish)</a>
-                        <p>One Drive</p>
-                    </div>
-                </article>
-
-                <article class="project" onclick="window.open('https://marcosinbali.blogspot.com/', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/Travel_Blog_Logo.png" alt="My Travel Blog Logo" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="https://marcosinbali.blogspot.com/" target="_blank">Marcoslasaye in Bali</a>
-                        <p>Travel Blog</p>
-                    </div>
-                </article>
-
-                <article class="project"
-                    onclick="window.open('https://1drv.ms/b/c/247835b12b0b4e59/EUwOajLvOZBAim91I7q0GWEBZXjf339wjeMyeGsvPqtIDg?e=BZE2MC', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/Archipielago.jpg" alt="" />
-                    </div>
-
-                    <div class="project-info">
-                        <a
-                            href="https://1drv.ms/b/c/247835b12b0b4e59/EUwOajLvOZBAim91I7q0GWEBZXjf339wjeMyeGsvPqtIDg?e=BZE2MC">
-                            Property in Bali - Presentation</a>
-                        <p>PDF - One Drive</p>
-                    </div>
-
-                </article>
-
-                <article class="project"
-                    onclick="window.open('https://www.canva.com/design/DAGOQzxKFKQ/hvk8Hgz_ZyY1xRCE0dHUHw/watch?utm_content=DAGOQzxKFKQ&utm_campaign=designshare&utm_medium=link&utm_source=editor', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/AerialView_BlueCoralKarimunjawa_min.jpg" alt="Aerial View Blue Coral Karimunjawa">
-                    </div>
-
-                    <div class="project-info">
-                        <a href="#">Blue Coral Karimunjawa</a>
-                        <p>Leasehold Project (English)</p>
-                    </div>
-                </article>
-
-                <article class="project" onclick="window.open('https://linktr.ee/Bamboo.Oasis.Bali', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/Banner-Bamboo-Oasis-1x1mt_page-0001.jpg" alt="Bamboo Oasis Resort Bali" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="https://linktr.ee/marcoslasaye" target="_blank">Bamboo Oasis Resort Bali</a>
-                        <p>Resort Online Presence</p>
-                    </div>
-                </article>
-
-                <article class="project"
-                    onclick="window.open('https://1drv.ms/f/s!AiFKf3FzCzke4Q8ogHGRq9zeRkxe?e=8gQutD', '_blank');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/Sunrise_Furniture_Logo.jpg" alt=" Sunrise Furniture Logo" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="https://1drv.ms/f/s!AiFKf3FzCzke4Q8ogHGRq9zeRkxe?e=eZefOE">Furniture & Interior
-                            Design</a>
-                        <p>Packing Lists, Accounting, etc... (One Drive)</p>
-                    </div>
-                </article>
-
-                <article class="project" onclick="window.open('https://marcoslasaye.github.io/MySpace/Designs.html');"
-                    style="cursor: pointer;">
-
-                    <div class="image-wrap">
-                        <img src="img/More_Designs.png" alt="More Designs" />
-                    </div>
-
-                    <div class="project-info">
-                        <a href="Designs.html">
-                            Click Here for more designs</a>
-                        <p>Designs</p>
-                    </div>
-
-                </article>
+                <div
+                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://marcoslasaye.github.io/MySpace/Designs.html" target="_blank">
+                        <img src="img/More_Designs.png" alt="Click Here for more Designs"
+                            class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Click Here for more Designs </h3>
+                            <p class="text-gray-600">Designs </p>
+                        </div>
+                    </a>
+                </div>
 
             </div>
         </section>
-        <!--Fin contenido-->
-
-        <footer id="footer">
-            <div class="logo">
-                Portfolio
-            </div>
-
-            <div class="info">
-                This Website was made using HTML and CSS Flexbox and Grid with Hosting in Github Pages - Marcos López
-                Sapitri &copy;
-            </div>
-        </footer>
-
-
-    </div>
+    </main>
+    <footer class="bg-black shadow-md py-4">
+        <div class="container mx-auto text-center">
+            <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
