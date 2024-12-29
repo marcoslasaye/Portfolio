@@ -2,6 +2,17 @@
 <html lang="es">
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-G71M1EQ936');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcos Lopez Sapitri - Portfolio</title>
@@ -35,10 +46,6 @@
             transform: scale3d(1.12, 1.12, 1.12);
         }
 
-        .initial-animation {
-            background-color: #15803d;
-            transform: scale3d(1.12, 1.12, 1.12);
-        }
     </style>
 </head>
 
@@ -82,13 +89,13 @@
         <section class="text-center py-16 bg-cover bg-center"
             style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
 
-            <div class="animated-div" id="animatedDiv">
+            <div class="animated-div">
                 <h1 class="text-4xl font-bold mb-4 text-white">Marcos Lopez Sapitri - Creative Professional</h1>
                 <p class="text-xl font-bold italic text-white mb-8">Showcasing various projects in design, marketing,
                     and content creation.</p>
             </div>
 
-            <a href="AboutMe.html" id="animatedDiv2" class="animated-div inline-block bg-yellow-500 text-white py-2 
+            <a href="AboutMe.html" class="animated-div inline-block bg-yellow-500 text-white py-2 
                 px-4 rounded-full hover:bg-green-700">
                 Explore More
             </a>
@@ -208,24 +215,6 @@
             <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
         </div>
     </footer>
-
-<script>
-    window.addEventListener('load', function () {
-        // Animación para el primer div
-        const animatedDiv = document.getElementById('animatedDiv');
-        animatedDiv.classList.add('initial-animation');
-        setTimeout(() => {
-            animatedDiv.classList.remove('initial-animation');
-        }, 1000);
-
-        // Animación para el segundo div
-        const animatedDiv2 = document.getElementById('animatedDiv2');
-        animatedDiv2.classList.add('initial-animation');
-        setTimeout(() => {
-            animatedDiv2.classList.remove('initial-animation');
-        }, 1000);
-    });
-</script>
 </body>
 
 </html>
