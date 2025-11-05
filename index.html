@@ -84,12 +84,30 @@
             animation: gradientMoveLeft 10s ease-in-out infinite;
         }
 
-        section:first-child{
+        section:first-child {
             border-radius: 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
                 inset 0 4px 10px rgba(255, 255, 255, 0.2);
             transform: perspective(1000px) rotateX(2deg);
             border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .animated-div.bg-yellow-500 {
+            box-shadow:
+                inset 0 4px 8px rgba(255, 255, 255, 0.4),
+                /* brillo superior interno */
+                inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+                /* sombra inferior interna */
+                0 8px 15px rgba(0, 0, 0, 0.25);
+            /* sombra externa general */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .animated-div.bg-yellow-500:hover {
+            box-shadow:
+                inset 0 4px 10px rgba(255, 255, 255, 0.5),
+                inset 0 -4px 10px rgba(0, 0, 0, 0.25),
+                0 10px 25px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -150,8 +168,7 @@
                 </p>
             </div>
 
-            <a href="AboutMe.html"
-                class="relative z-10 mt-8 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg">
+            <a href="AboutMe.html" class="animated-div">
                 Explore More
             </a>
         </section>
