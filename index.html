@@ -129,34 +129,21 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* --- Scroll animation mejorada con desplazamiento visible --- */
+        /* --- Scroll animation con desplazamiento bidireccional real --- */
 
         .scroll-reveal {
             opacity: 0;
             transform: translateY(80px) scale(0.9);
-            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
-            visibility: hidden;
         }
 
         .scroll-reveal.visible {
             opacity: 1;
             transform: translateY(0) scale(1);
-            visibility: visible;
-        }
-
-        .scroll-reveal:nth-child(1n) {
-            transition-delay: 0s;
-        }
-
-        .scroll-reveal:nth-child(2n) {
-            transition-delay: 0.1s;
-        }
-
-        .scroll-reveal:nth-child(3n) {
-            transition-delay: 0.2s;
         }
     </style>
+
 </head>
 
 <body class="bg-gray-100 text-gray-900">
@@ -334,26 +321,28 @@
         document.addEventListener("DOMContentLoaded", () => {
             const elements = document.querySelectorAll('.scroll-reveal');
 
-            const revealOnScroll = () => {
-                const triggerBottom = window.innerHeight * 0.85;
-
-                elements.forEach(el => {
-                    const boxTop = el.getBoundingClientRect().top;
-
-                    // Solo activa la animación una vez cuando entra
-                    if (boxTop < triggerBottom) {
-                        el.classList.add('visible');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
                     }
                 });
-            };
+            }, { threshold: 0.2 });
 
-            // Ejecutar también al cargar para animar la primera sección
-            revealOnScroll();
-
-            window.addEventListener('scroll', revealOnScroll);
+            elements.forEach(el => observer.observe(el));
         });
     </script>
 
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+    </script>
 
 
 </body>
