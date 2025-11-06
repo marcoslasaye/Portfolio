@@ -35,18 +35,55 @@
             overscroll-behavior: none;
         }
 
+        /* --- Adaptación del efecto Uiverse al botón amarillo --- */
         .animated-div {
+            position: relative;
+            font-size: 17px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 1em 2.5em;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 6em;
+            transition: all 0.2s;
+            border: none;
+            font-family: inherit;
+            font-weight: 500;
+            color: white;
             background-color: #eab308;
-            border-radius: 15px;
-            padding: 20px;
-            transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+            /* Amarillo original */
         }
 
         .animated-div:hover {
-            background-color: #15803d;
-            /* Verde semáforo */
-            transform: scale3d(1.12, 1.12, 1.12);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            background-color: #ca8a04;
         }
+
+        .animated-div:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .animated-div::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            border-radius: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all 0.4s;
+            background-color: #eab308;
+        }
+
+        .animated-div:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+
 
         @keyframes gradientMoveRight {
             0% {
@@ -92,22 +129,32 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .animated-div.bg-yellow-500 {
-            box-shadow:
-                inset 0 4px 8px rgba(255, 255, 255, 0.4),
-                /* brillo superior interno */
-                inset 0 -4px 8px rgba(0, 0, 0, 0.2),
-                /* sombra inferior interna */
-                0 8px 15px rgba(0, 0, 0, 0.25);
-            /* sombra externa general */
-            transition: all 0.3s ease-in-out;
+        /* --- Scroll animation mejorada con desplazamiento visible --- */
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(80px) scale(0.9);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+            visibility: hidden;
         }
 
-        .animated-div.bg-yellow-500:hover {
-            box-shadow:
-                inset 0 4px 10px rgba(255, 255, 255, 0.5),
-                inset 0 -4px 10px rgba(0, 0, 0, 0.25),
-                0 10px 25px rgba(0, 0, 0, 0.3);
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            visibility: visible;
+        }
+
+        .scroll-reveal:nth-child(1n) {
+            transition-delay: 0s;
+        }
+
+        .scroll-reveal:nth-child(2n) {
+            transition-delay: 0.1s;
+        }
+
+        .scroll-reveal:nth-child(3n) {
+            transition-delay: 0.2s;
         }
     </style>
 </head>
@@ -149,7 +196,7 @@
         </nav>
     </div>
     <main class="container mx-auto p-4">
-        <section class="relative text-center py-20 flex flex-col items-center gap-8 overflow-hidden">
+        <section class="scroll-reveal relative text-center py-20 flex flex-col items-center gap-8 overflow-hidden">
             <!-- Capa 1: degradado que se mueve a la derecha -->
             <div
                 class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-400 animate-gradient-right bg-[length:200%_200%] opacity-70">
@@ -175,7 +222,7 @@
         </section>
 
 
-        <section class="py-16">
+        <section class="scroll-reveal py-16">
             <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div
@@ -282,6 +329,33 @@
             <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('.scroll-reveal');
+
+            const revealOnScroll = () => {
+                const triggerBottom = window.innerHeight * 0.85;
+
+                elements.forEach(el => {
+                    const boxTop = el.getBoundingClientRect().top;
+
+                    // Solo activa la animación una vez cuando entra
+                    if (boxTop < triggerBottom) {
+                        el.classList.add('visible');
+                    }
+                });
+            };
+
+            // Ejecutar también al cargar para animar la primera sección
+            revealOnScroll();
+
+            window.addEventListener('scroll', revealOnScroll);
+        });
+    </script>
+
+
+
 </body>
 
 </html>
