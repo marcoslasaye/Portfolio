@@ -156,6 +156,45 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             border-color: rgba(255, 255, 255, 0.3);
         }
+
+        /* --- Estilo especial solo para el menú móvil --- */
+        #mobile-menu nav a {
+            position: relative;
+            display: block;
+            padding: 12px 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+        }
+
+        #mobile-menu nav a:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(20, 184, 166, 0.4));
+            transform: translateX(6px) scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: #fff;
+        }
+
+        /* Añadimos un sutil efecto luminoso animado */
+        #mobile-menu nav a::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 1px;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #mobile-menu nav a:hover::after {
+            opacity: 1;
+        }
     </style>
 
 </head>
@@ -191,7 +230,7 @@
         </div>
     </header>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 w-full bg-white shadow-lg z-50">
         <nav class="flex flex-col space-y-4 p-4">
             <a href="index.html" class="text-gray-800 hover:text-gray-600">Projects</a>
             <a href="AboutMe.html" class="text-gray-800 hover:text-gray-600">About Me</a>
@@ -362,6 +401,16 @@
                 header.classList.remove("scrolled");
             }
         });
+    </script>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
     </script>
 
 </body>
