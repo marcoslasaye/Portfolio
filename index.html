@@ -195,6 +195,49 @@
         #mobile-menu nav a:hover::after {
             opacity: 1;
         }
+
+        /* === Botones estilo Uiverse (adaptados al nav) === */
+        .user-profile {
+            width: 130px;
+            height: 46px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
+            background-color: rgba(46, 142, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-profile:hover,
+        .user-profile:focus {
+            background-color: rgba(46, 142, 255, 0.7);
+            box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
+            outline: none;
+        }
+
+        .user-profile-inner {
+            width: 126px;
+            height: 42px;
+            border-radius: 12px;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: color 0.3s ease;
+        }
+
+        .user-profile-inner svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+        }
     </style>
 
 </head>
@@ -206,21 +249,40 @@
 
 
         <div class="container mx-auto flex justify-between items-center p-4">
-            <a href="/" class="text-2xl font-bold text-gray-800">
-                <img src="img/favicon.ico" alt="Marcos Lopez Sapitri Logo" class="h-8">
+            <a href="/" class="flex items-center space-x-3">
+                <img src="img/favicon.ico" alt="Marcos Lopez Sapitri Logo" class="h-10 w-10 rounded-lg shadow-lg">
             </a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="index.html"
-                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">Projects</a>
-                <a href="Designs.html"
-                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">Designs</a>
-                <a href="AboutMe.html"
-                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">About
-                    Me</a>
-                <a href="personalCV.html"
-                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">CV</a>
-                <a href="https://linktr.ee/marcoslasaye" target="_blank"
-                    class="text-white hover:text-gray-400 transform transition-transform duration-300 hover:scale-110">Contact</a>
+
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Projects</p>
+                    </div>
+                </a>
+
+                <a href="Designs.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Designs</p>
+                    </div>
+                </a>
+
+                <a href="AboutMe.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>About Me</p>
+                    </div>
+                </a>
+
+                <a href="personalCV.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>CV</p>
+                    </div>
+                </a>
+
+                <a href="https://linktr.ee/marcoslasaye" target="_blank" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Contact</p>
+                    </div>
+                </a>
             </nav>
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
