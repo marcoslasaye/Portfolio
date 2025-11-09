@@ -1,246 +1,65 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
+    <!-- 🌐 Configuración básica -->
+     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Marcos Lopez Sapitri is a creative professional showcasing various projects in design, marketing, and content creation.">
+    <meta name="keywords"
+        content="Marcos Lopez Sapitri, Creative Professional, Design Projects, Marketing, Content Creation, Portfolio">
+    <meta name="author" content="Marcos Lopez Sapitri">
 
-    <!-- Google tag (gtag.js) -->
+    <title>Marcos Lopez Sapitri - Creative Professional Portfolio</title>
+
+    <!-- 🖼️ SEO y redes sociales -->
+    <meta property="og:title" content="Marcos Lopez Sapitri - Creative Professional Portfolio">
+    <meta property="og:description"
+        content="Creative portfolio showcasing projects in design, marketing, and content creation.">
+    <meta property="og:image" content="img/preview.jpg">
+    <meta property="og:url" content="https://marcoslasaye.github.io/Archipielago.Group/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Marcos Lopez Sapitri - Creative Professional Portfolio">
+    <meta name="twitter:description"
+        content="Creative portfolio showcasing projects in design, marketing, and content creation.">
+    <meta name="twitter:image" content="img/preview.jpg">
+
+    <!-- 🎨 Estilos y fuentes -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- ⚡ Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        ubuntu: ['Ubuntu', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 📊 Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-G71M1EQ936');
     </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcos Lopez Sapitri - Portfolio</title>
-    <meta name="description"
-        content="Marcos Lopez Sapitri is a creative professional showcasing various projects in design, marketing, and content creation.">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html,
-        body {
-            overscroll-behavior: none;
-        }
-
-        /* --- Adaptación del efecto Uiverse al botón amarillo --- */
-        .animated-div {
-            position: relative;
-            font-size: 17px;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 1em 2.5em;
-            display: inline-block;
-            cursor: pointer;
-            border-radius: 6em;
-            transition: all 0.2s;
-            border: none;
-            font-family: inherit;
-            font-weight: 500;
-            color: white;
-            background-color: #eab308;
-            /* Amarillo original */
-        }
-
-        .animated-div:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-            background-color: #ca8a04;
-        }
-
-        .animated-div:active {
-            transform: translateY(-1px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .animated-div::after {
-            content: "";
-            display: inline-block;
-            height: 100%;
-            width: 100%;
-            border-radius: 100px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: all 0.4s;
-            background-color: #eab308;
-        }
-
-        .animated-div:hover::after {
-            transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;
-        }
-
-
-        @keyframes gradientMoveRight {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes gradientMoveLeft {
-            0% {
-                background-position: 100% 50%;
-            }
-
-            50% {
-                background-position: 0% 50%;
-            }
-
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .animate-gradient-right {
-            animation: gradientMoveRight 10s ease-in-out infinite;
-        }
-
-        .animate-gradient-left {
-            animation: gradientMoveLeft 10s ease-in-out infinite;
-        }
-
-        section:first-child {
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
-                inset 0 4px 10px rgba(255, 255, 255, 0.2);
-            transform: perspective(1000px) rotateX(2deg);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* --- Scroll animation con desplazamiento bidireccional real --- */
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(80px) scale(0.9);
-            transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        /* --- NAV STICKY / FIXED & GLASS EFFECT --- */
-
-        #main-header {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.5s ease-in-out;
-        }
-
-        #main-header.scrolled {
-            background-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* --- Estilo especial solo para el menú móvil --- */
-        #mobile-menu nav a {
-            position: relative;
-            display: block;
-            padding: 12px 16px;
-            border-radius: 12px;
-            transition: all 0.3s ease-in-out;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(8px);
-        }
-
-        #mobile-menu nav a:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(20, 184, 166, 0.4));
-            transform: translateX(6px) scale(1.03);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            color: #fff;
-        }
-
-        /* Añadimos un sutil efecto luminoso animado */
-        #mobile-menu nav a::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 1px;
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-            -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        #mobile-menu nav a:hover::after {
-            opacity: 1;
-        }
-
-        /* === Botones estilo Uiverse (adaptados al nav) === */
-        .user-profile {
-            width: 130px;
-            height: 46px;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
-            background-color: rgba(46, 142, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .user-profile:hover,
-        .user-profile:focus {
-            background-color: rgba(46, 142, 255, 0.7);
-            box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
-            outline: none;
-        }
-
-        .user-profile-inner {
-            width: 126px;
-            height: 42px;
-            border-radius: 12px;
-            background-color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #fff;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            transition: color 0.3s ease;
-        }
-
-        .user-profile-inner svg {
-            width: 22px;
-            height: 22px;
-            fill: #fff;
-        }
-    </style>
-
 </head>
+
 
 <body class="bg-gray-100 text-gray-900">
 
@@ -301,6 +120,7 @@
                 class="text-gray-800 hover:text-gray-600">Contact</a>
         </nav>
     </div>
+
     <main class="container mx-auto p-4 pt-24">
         <section class="scroll-reveal relative text-center py-20 flex flex-col items-center gap-8 overflow-hidden mt-8">
             <!-- Capa 1: degradado que se mueve a la derecha -->
@@ -368,6 +188,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div
                     class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://marcosinbali.blogspot.com/" target="_blank">
@@ -379,6 +200,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div
                     class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://www.canva.com/design/DAGUwHI8tDE/ROYe2EpL7exb8LO_mc6VBA/watch?utm_content=DAGUwHI8tDE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h10df0e9cf3"
@@ -391,6 +213,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div
                     class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://www.canva.com/design/DAGOQzxKFKQ/hvk8Hgz_ZyY1xRCE0dHUHw/watch?utm_content=DAGOQzxKFKQ&utm_campaign=designshare&utm_medium=link&utm_source=editor"
@@ -403,6 +226,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div
                     class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://linktr.ee/Bamboo.Oasis.Bali" target="_blank">
@@ -430,50 +254,14 @@
             </div>
         </section>
     </main>
+
     <footer class="scroll-reveal bg-black shadow-md py-4">
         <div class="container mx-auto text-center">
             <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const elements = document.querySelectorAll('.scroll-reveal');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            elements.forEach(el => observer.observe(el));
-        });
-    </script>
-
-    <script>
-        window.addEventListener("scroll", () => {
-            const header = document.getElementById("main-header");
-            if (window.scrollY > 50) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
-
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-    </script>
+    <script src="/js/main.js"></script>
 
 </body>
 
