@@ -99,3 +99,92 @@ menuBtn?.addEventListener('click', () => {
   menu.classList.toggle('hidden');
 });
 
+/* ============================================ */
+/* GENERAR EFECTO MATRIX (Caracteres japoneses) */
+/* ============================================ */
+
+/* 
+    Esta función genera dinámicamente los caracteres japoneses para el efecto matrix.
+    Los caracteres se generan en una cuadrícula y pulsan con diferentes colores.
+    
+    Funcionamiento:
+    1. Obtiene el contenedor del matrix por su ID
+    2. Define un array con caracteres japoneses (katakana)
+    3. Calcula cuántos caracteres caben en el contenedor
+    4. Genera los caracteres dinámicamente y los añade al contenedor
+    
+    Basado en: https://uiverse.io/solowzrd/wet-lionfish-63
+*/
+
+// Función para generar el efecto matrix
+function generateMatrix() {
+  // Obtiene el contenedor del matrix por su ID
+  const matrixContainer = document.getElementById('matrix-container');
+  
+  // Si no existe el contenedor, no hace nada
+  if (!matrixContainer) return;
+  
+  // Array con caracteres japoneses (katakana)
+  // Estos son los caracteres que se mostrarán en el efecto matrix
+  const japaneseChars = [
+    'ア', 'イ', 'ウ', 'エ', 'オ',
+    'カ', 'キ', 'ク', 'ケ', 'コ',
+    'サ', 'シ', 'ス', 'セ', 'ソ',
+    'タ', 'チ', 'ツ', 'テ', 'ト',
+    'ナ', 'ニ', 'ヌ', 'ネ', 'ノ',
+    'ハ', 'ヒ', 'フ', 'ヘ', 'ホ',
+    'マ', 'ミ', 'ム', 'メ', 'モ',
+    'ヤ', 'ユ', 'ヨ', 'ラ', 'リ',
+    'ル', 'レ', 'ロ', 'ワ', 'ヲ',
+    'ン', 'ガ', 'ギ', 'グ', 'ゲ',
+    'ゴ', 'ザ', 'ジ', 'ズ', 'ゼ',
+    'ゾ', 'ダ', 'ヂ', 'ヅ', 'デ',
+    'ド', 'バ', 'ビ', 'ブ', 'ベ',
+    'ボ', 'パ', 'ピ', 'プ', 'ペ',
+    'ポ'
+  ];
+  
+  // Calcula cuántos caracteres caben en el contenedor
+  // Obtiene el ancho y alto del contenedor
+  const containerWidth = matrixContainer.offsetWidth || window.innerWidth;
+  const containerHeight = matrixContainer.offsetHeight || window.innerHeight;
+  
+  // Calcula el número de columnas y filas basado en el tamaño del contenedor
+  // Cada carácter ocupa aproximadamente 40px (definido en CSS)
+  const cols = Math.ceil(containerWidth / 40);
+  const rows = Math.ceil(containerHeight / 40);
+  
+  // Calcula el número total de caracteres necesarios
+  const totalChars = cols * rows;
+  
+  // Genera los caracteres dinámicamente
+  for (let i = 0; i < totalChars; i++) {
+    // Crea un elemento span para cada carácter
+    const span = document.createElement('span');
+    
+    // Selecciona un carácter aleatorio del array
+    const randomChar = japaneseChars[Math.floor(Math.random() * japaneseChars.length)];
+    
+    // Añade el carácter al span
+    span.textContent = randomChar;
+    
+    // Añade el span al contenedor
+    matrixContainer.appendChild(span);
+  }
+}
+
+// Ejecuta la función cuando el DOM esté completamente cargado
+// DOMContentLoaded: se ejecuta cuando el HTML está completamente cargado
+document.addEventListener('DOMContentLoaded', generateMatrix);
+
+// También ejecuta la función cuando la ventana cambia de tamaño
+// Esto asegura que el matrix se ajuste si cambia el tamaño de la ventana
+window.addEventListener('resize', () => {
+  // Limpia el contenedor antes de regenerar
+  const matrixContainer = document.getElementById('matrix-container');
+  if (matrixContainer) {
+    matrixContainer.innerHTML = '';
+    generateMatrix();
+  }
+});
+

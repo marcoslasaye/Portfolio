@@ -171,23 +171,16 @@
         -->
         <section class="scroll-reveal relative text-center py-20 flex flex-col items-center gap-8 overflow-hidden mt-8">
             
-            <!-- Capa 1: degradado animado que se mueve hacia la derecha -->
+            <!-- ============================================ -->
+            <!-- EFECTO MATRIX (Fondo animado) -->
+            <!-- ============================================ -->
             <!-- 
-                Este div crea un fondo degradado animado (de índigo a azul a esmeralda)
-                que se mueve continuamente de izquierda a derecha
+                Efecto de patrón matrix con caracteres japoneses que pulsan
+                Basado en: https://uiverse.io/solowzrd/wet-lionfish-63
+                Los caracteres se generan dinámicamente con JavaScript
             -->
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-400 animate-gradient-right bg-[length:200%_200%] opacity-70">
-            </div>
-            
-            <!-- Capa 2: degradado animado que se mueve hacia la izquierda -->
-            <!-- 
-                Este div crea otro fondo degradado (de rosa a púrpura a cian)
-                que se mueve en dirección opuesta y se mezcla con la capa anterior
-                - mix-blend-overlay: mezcla los colores con la capa de abajo
-            -->
-            <div
-                class="absolute inset-0 bg-gradient-to-l from-pink-500 via-purple-500 to-cyan-400 animate-gradient-left bg-[length:200%_200%] opacity-60 mix-blend-overlay">
+            <div class="jp-matrix" id="matrix-container">
+                <!-- Los caracteres se generan dinámicamente con JavaScript -->
             </div>
 
             <!-- Contenido de texto sobre las capas de fondo -->
