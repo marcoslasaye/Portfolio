@@ -1,15 +1,40 @@
+/* ============================================ */
+/* CONFIGURACIÓN GENERAL DEL CUERPO */
+/* ============================================ */
+
 /* --- Adaptación del efecto Uiverse al botón amarillo --- */
 
+/* 
+    Configuración del body para mejorar el renderizado de fuentes
+    -webkit-font-smoothing: suaviza las fuentes en navegadores WebKit (Chrome, Safari)
+    -moz-osx-font-smoothing: suaviza las fuentes en Firefox en macOS
+*/
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* 
+    Prevención del overscroll (rebote) en la página
+    overscroll-behavior: none: evita el efecto de rebote al llegar al final de la página
+    Esto mejora la experiencia de usuario, especialmente en móviles
+*/
 html,
 body {
     overscroll-behavior: none;
 }
 
+/* ============================================ */
+/* BOTÓN ANIMADO AMARILLO (Explore More) */
+/* ============================================ */
+
+/* 
+    Estilos base del botón amarillo animado
+    Este es el botón "Explore More" en la sección hero
+    - position: relative: permite posicionar el pseudo-elemento ::after
+    - border-radius: 6em: hace el botón completamente redondeado
+    - background-color: #eab308: color amarillo de Tailwind (yellow-500)
+*/
 .animated-div {
     position: relative;
     font-size: 17px;
@@ -28,17 +53,35 @@ body {
     /* Amarillo original */
 }
 
+/* 
+    Efecto cuando pasas el mouse sobre el botón (hover)
+    - translateY(-3px): se eleva 3px hacia arriba
+    - box-shadow: añade una sombra para dar profundidad
+    - background-color: cambia a un amarillo más oscuro (#ca8a04 = yellow-600)
+*/
 .animated-div:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
     background-color: #ca8a04;
 }
 
+/* 
+    Efecto cuando haces clic en el botón (active)
+    - translateY(-1px): se eleva menos que en hover (efecto de "presionado")
+    - box-shadow: sombra más pequeña
+*/
 .animated-div:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* 
+    Pseudo-elemento ::after que crea el efecto de expansión
+    Este elemento está detrás del botón (z-index: -1) y se expande al hacer hover
+    - content: "": necesario para que el pseudo-elemento exista
+    - position: absolute: se posiciona detrás del botón
+    - z-index: -1: queda detrás del contenido del botón
+*/
 .animated-div::after {
     content: "";
     display: inline-block;
@@ -53,12 +96,29 @@ body {
     background-color: #eab308;
 }
 
+/* 
+    Efecto cuando pasas el mouse: el pseudo-elemento se expande y desaparece
+    - scaleX(1.4) scaleY(1.6): se expande más en altura que en ancho
+    - opacity: 0: se desvanece mientras se expande
+    Esto crea un efecto visual de "explosión" o "onda" al hacer hover
+*/
 .animated-div:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
 
 
+/* ============================================ */
+/* ANIMACIONES DE DEGRADADO (Fondo Hero) */
+/* ============================================ */
+
+/* 
+    Animación que mueve el degradado hacia la derecha
+    Esta animación se usa en la primera capa de fondo del hero section
+    - 0%: posición inicial del degradado
+    - 50%: el degradado se mueve completamente a la derecha
+    - 100%: vuelve a la posición inicial (crea un loop infinito)
+*/
 @keyframes gradientMoveRight {
     0% {
         background-position: 0% 50%;
@@ -73,6 +133,14 @@ body {
     }
 }
 
+/* 
+    Animación que mueve el degradado hacia la izquierda
+    Esta animación se usa en la segunda capa de fondo del hero section
+    - 0%: posición inicial del degradado (a la derecha)
+    - 50%: el degradado se mueve completamente a la izquierda
+    - 100%: vuelve a la posición inicial (crea un loop infinito)
+    Se mueve en dirección opuesta a gradientMoveRight para crear un efecto visual interesante
+*/
 @keyframes gradientMoveLeft {
     0% {
         background-position: 100% 50%;
@@ -87,14 +155,37 @@ body {
     }
 }
 
+/* 
+    Clase que aplica la animación de movimiento hacia la derecha
+    - 10s: duración de la animación (10 segundos)
+    - ease-in-out: curva de animación suave al inicio y al final
+    - infinite: la animación se repite infinitamente
+*/
 .animate-gradient-right {
     animation: gradientMoveRight 10s ease-in-out infinite;
 }
 
+/* 
+    Clase que aplica la animación de movimiento hacia la izquierda
+    - 10s: duración de la animación (10 segundos)
+    - ease-in-out: curva de animación suave al inicio y al final
+    - infinite: la animación se repite infinitamente
+*/
 .animate-gradient-left {
     animation: gradientMoveLeft 10s ease-in-out infinite;
 }
 
+/* ============================================ */
+/* ESTILOS DE LA SECCIÓN HERO (Primera sección) */
+/* ============================================ */
+
+/* 
+    Estilos especiales para la primera sección (hero section)
+    - border-radius: 50px: esquinas muy redondeadas
+    - box-shadow: sombra externa e interna para efecto de profundidad
+    - transform: perspective(1000px) rotateX(2deg): efecto 3D sutil (inclinación)
+    - border: borde semitransparente para efecto glassmorphism
+*/
 section:first-child {
     border-radius: 50px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
@@ -103,8 +194,21 @@ section:first-child {
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+/* ============================================ */
+/* ANIMACIONES DE SCROLL (Reveal) */
+/* ============================================ */
+
 /* --- Scroll animation con desplazamiento bidireccional real --- */
 
+/* 
+    Estado inicial de los elementos con clase scroll-reveal
+    Los elementos empiezan invisibles y desplazados hacia abajo
+    - opacity: 0: invisible inicialmente
+    - translateY(80px): desplazado 80px hacia abajo
+    - scale(0.9): ligeramente más pequeño
+    - will-change: optimiza el rendimiento indicando que estos valores cambiarán
+    Esta clase se aplica a secciones que queremos que aparezcan al hacer scroll
+*/
 .scroll-reveal {
     opacity: 0;
     transform: translateY(80px) scale(0.9);
@@ -112,26 +216,62 @@ section:first-child {
     will-change: opacity, transform;
 }
 
+/* 
+    Estado visible cuando el elemento entra en el viewport
+    JavaScript añade esta clase cuando el elemento es visible
+    - opacity: 1: completamente visible
+    - translateY(0): vuelve a su posición original
+    - scale(1): tamaño normal
+    El efecto es que los elementos "aparecen" suavemente al hacer scroll
+*/
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
+/* ============================================ */
+/* HEADER / BARRA DE NAVEGACIÓN */
+/* ============================================ */
+
 /* --- NAV STICKY / FIXED & GLASS EFFECT --- */
 
+/* 
+    Estilos base del header (barra de navegación)
+    - backdrop-filter: blur(12px): efecto de desenfoque del fondo (glassmorphism)
+    - -webkit-backdrop-filter: compatibilidad con navegadores WebKit
+    - transition: transición suave para todos los cambios
+*/
 #main-header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: all 0.5s ease-in-out;
 }
 
+/* 
+    Estado cuando el header tiene la clase "scrolled" (añadida por JavaScript al hacer scroll)
+    - background-color: fondo más opaco cuando se hace scroll
+    - box-shadow: sombra más pronunciada
+    - border-color: borde más visible
+    Esto hace que el header sea más visible cuando haces scroll hacia abajo
+*/
 #main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.3);
 }
 
+/* ============================================ */
+/* MENÚ MÓVIL (Hamburguesa) */
+/* ============================================ */
+
 /* --- Estilo especial solo para el menú móvil --- */
+
+/* 
+    Estilos base de los enlaces del menú móvil
+    - position: relative: permite posicionar el pseudo-elemento ::after
+    - backdrop-filter: blur(8px): efecto glassmorphism
+    - background: fondo semitransparente blanco
+*/
 #mobile-menu nav a {
     position: relative;
     display: block;
@@ -142,6 +282,13 @@ section:first-child {
     backdrop-filter: blur(8px);
 }
 
+/* 
+    Efecto hover en los enlaces del menú móvil
+    - background: degradado azul-verde cuando pasas el mouse
+    - translateX(6px): se desplaza ligeramente a la derecha
+    - scale(1.03): se agranda ligeramente
+    - box-shadow: añade sombra para profundidad
+*/
 #mobile-menu nav a:hover {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(20, 184, 166, 0.4));
     transform: translateX(6px) scale(1.03);
@@ -149,7 +296,14 @@ section:first-child {
     color: #fff;
 }
 
-/* Añadimos un sutil efecto luminoso animado */
+/* 
+    Pseudo-elemento ::after que crea un borde luminoso animado
+    - content: '': necesario para que el pseudo-elemento exista
+    - inset: 0: cubre todo el elemento padre
+    - background: degradado blanco semitransparente
+    - mask: crea un efecto de borde (solo muestra los bordes)
+    - opacity: 0: invisible por defecto
+*/
 #mobile-menu nav a::after {
     content: '';
     position: absolute;
@@ -161,16 +315,37 @@ section:first-child {
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
+/* 
+    El borde luminoso aparece cuando pasas el mouse sobre el enlace
+    - opacity: 1: se hace visible
+*/
 #mobile-menu nav a:hover::after {
     opacity: 1;
 }
 
+/* ============================================ */
+/* BOTONES DEL MENÚ DE NAVEGACIÓN (Desktop) */
+/* ============================================ */
+
 /* === Botones estilo Uiverse (adaptados al nav) === */
+
+/* 
+    Contenedor externo del botón del menú
+    Estos son los botones del menú de navegación (Projects, Designs, About Me, etc.)
+    - width/height: tamaño fijo del botón
+    - border-radius: 14px: esquinas redondeadas
+    - background: degradado azul semitransparente
+    - background-color: color de fondo azul con transparencia
+    - display: flex: para centrar el contenido interno
+*/
 .user-profile {
     width: 130px;
     height: 46px;
@@ -184,6 +359,12 @@ section:first-child {
     justify-content: center;
 }
 
+/* 
+    Efecto cuando pasas el mouse o enfocas el botón
+    - background-color: se vuelve más opaco (más azul)
+    - box-shadow: añade un resplandor azul alrededor del botón
+    - outline: none: elimina el borde de enfoque por defecto
+*/
 .user-profile:hover,
 .user-profile:focus {
     background-color: rgba(46, 142, 255, 0.7);
@@ -191,6 +372,16 @@ section:first-child {
     outline: none;
 }
 
+/* 
+    Contenedor interno del botón (donde va el texto)
+    - width/height: ligeramente más pequeño que el contenedor externo (crea un borde)
+    - background-color: #1a1a1a: fondo oscuro (casi negro)
+    - display: flex: para centrar el texto
+    - gap: 10px: espacio entre iconos y texto (si hay iconos)
+    - color: #fff: texto blanco
+    - font-weight: 600: texto semi-negrita
+    - letter-spacing: 0.3px: espaciado entre letras
+*/
 .user-profile-inner {
     width: 126px;
     height: 42px;
@@ -207,6 +398,11 @@ section:first-child {
     transition: color 0.3s ease;
 }
 
+/* 
+    Estilos para iconos SVG dentro de los botones (si los hay)
+    - width/height: 22px: tamaño del icono
+    - fill: #fff: color blanco para el icono
+*/
 .user-profile-inner svg {
     width: 22px;
     height: 22px;
