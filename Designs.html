@@ -2,207 +2,275 @@
 <html lang="en">
 
 <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-    
-            gtag('config', 'G-G71M1EQ936');
-        </script>
-
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcos Lopez Sapitri - Portfolio</title>
-    <link rel="stylesheet" href="css/Designs.css" />
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Marcos Lopez Sapitri - Design portfolio showcasing logos, templates, and creative designs.">
+    <meta name="keywords" content="Marcos Lopez Sapitri, Design Portfolio, Logos, Templates, Creative Designs">
+    <meta name="author" content="Marcos Lopez Sapitri">
+    <title>Marcos Lopez Sapitri - Design Portfolio</title>
+    
+    <!-- SEO y redes sociales -->
+    <meta property="og:title" content="Marcos Lopez Sapitri - Design Portfolio">
+    <meta property="og:description" content="Design portfolio showcasing logos, templates, and creative designs.">
+    <meta property="og:image" content="img/preview.jpg">
+    <meta property="og:url" content="https://marcoslasaye.github.io/Portfolio/Designs.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Marcos Lopez Sapitri - Design Portfolio">
+    <meta name="twitter:description" content="Design portfolio showcasing logos, templates, and creative designs.">
+    <meta name="twitter:image" content="img/preview.jpg">
+    <link rel="canonical" href="https://marcoslasaye.github.io/Portfolio/Designs.html">
+
+    <!-- Estilos y fuentes -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.min.css">
+
+    <!-- Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        ubuntu: ['Ubuntu', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-G71M1EQ936');
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marcos Lopez Sapitri",
+        "jobTitle": "Creative Professional",
+        "url": "https://marcoslasaye.github.io/Portfolio/",
+        "sameAs": [
+            "https://linktr.ee/marcoslasaye"
+        ]
+    }
+    </script>
 </head>
 
-<body>
-    <!-- Inicio container -->
-    <div id="container">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 dark:bg-gray-900/10 border-b border-white/20 dark:border-gray-700/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="/" class="flex items-center space-x-3">
+                <img src="img/favicon.ico" alt="Marcos Lopez Sapitri Logo" class="h-10 w-10 rounded-lg shadow-lg">
+            </a>
 
-        <!--Inicio Cabecera-->
-        <header id="header">
-            <div class="logo">
-                <h1>Marcos Lopez Sapitri - Portfolio</h1>
-            </div>
-
-            <nav id="menu">
-                <ul>
-                    <li> <a href="index.html">Projects</a></li>
-                    <li> <a href="AboutMe.html" target="_blank">About Me</a></li>
-                    <li> <a target="_blank" href="https://linktr.ee/marcoslasaye">Contact</a></li>
-
-                </ul>
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Projects</p>
+                    </div>
+                </a>
+                <a href="Designs.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Designs</p>
+                    </div>
+                </a>
+                <a href="AboutMe.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>About Me</p>
+                    </div>
+                </a>
+                <a href="personalCV.html" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>CV</p>
+                    </div>
+                </a>
+                <a href="https://linktr.ee/marcoslasaye" target="_blank" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Contact</p>
+                    </div>
+                </a>
             </nav>
-        </header>
-        <!--Fin Cabecera-->
 
-        <!--Inicio contenido-->
-        <section id="content">
+            <!-- Toggle dark mode y botón hamburguesa -->
+            <div class="flex items-center space-x-4">
+                <label class="switch">
+                    <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+                    <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>
+                    <input type="checkbox" class="input" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-            <aside id="aside">
-                <h2>What do you want to see?</h2>
-                <ul>
-                    <li>
-                        <a href="personalCV.html">CV</a>
-                    </li>
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 w-full backdrop-blur-md bg-white/90 dark:bg-gray-900/90 shadow-lg z-50">
+        <nav class="flex flex-col space-y-3 p-4">
+            <a href="index.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>Projects</p>
+                </div>
+            </a>
+            <a href="Designs.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>Designs</p>
+                </div>
+            </a>
+            <a href="AboutMe.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>About Me</p>
+                </div>
+            </a>
+            <a href="personalCV.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>CV</p>
+                </div>
+            </a>
+            <a href="https://linktr.ee/marcoslasaye" target="_blank" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>Contact</p>
+                </div>
+            </a>
+        </nav>
+    </div>
 
-                    <li>
-                        <a target="_blank"
-                            href="https://1drv.ms/f/s!AiFKf3FzCzke01_U7YaRQrkHZzWz?e=hdHeuI">Certificates</a>
-                    </li>
-
-                    <li>
-                        <a href="Designs.html">Designs</a>
-                    </li>
-
-                    <li>
-                        <a href="https://1drv.ms/f/s!AiFKf3FzCzke4V6yhwshsao4rxOK?e=DHFg0c" target="_blank"> Content
-                            Videos </a>
-                    </li>
-                </ul>
-            </aside>
-
-            <div id="projects">
-
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/KronosTech-Logo-500x500.png" alt="KronotechLogo">
-                    </div>
-
-                    <div class="project-info">
-                        <h2>KronoTech.ID</h2>
-                        <p>Logo</p>
-                    </div>
-                </article>
-
-
-                <article class="project" id="NuevaIdeaMkt">
-
-                    <div class="image-wrap">
-                        <img src="img/Peeko-Safari.png" alt="Peeko Safari Logo" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>Peeko Safari</h2>
-                        <p>Logo</p>
-                    </div>
-                </article>
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/TheChampionBook.png" alt="The Champion Book Logo" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>The ChampionBook</h2>
-                        <p>Logo</p>
-                    </div>
-                </article>
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/ProfilePhotoIG.png" alt="Marco Aurelius" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>MerlinBook.AI</h2>
-                        <p>Logo</p>
-                    </div>
-                </article>
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/TemplateGuestoftheDay2.png" alt="Template Guest of the Day - Bamboo Oasis" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>Guest Of The Day - Bali Resort</h2>
-                        <p>Stories</p>
-                    </div>
-                </article>
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/moodboard.png" alt="Moodboard" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>Moodboard</h2>
-                        <p>1080 x 1080 px</p>
-                    </div>
-                </article>
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/infopost.png" alt="Info Post" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>Info-Post</h2>
-                        <p>1080 x 1080 px</p>
-                    </div>
-                </article>
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/leftorright.png" alt="Left or Right Post" />
-                    </div>
-
-                    <div class="project-info">
-                        <h2>Left or Right Post</h2>
-                        <p>1080 x 1080 px</p>
-                    </div>
-                </article>
-
-
-                <article class="project">
-
-                    <div class="image-wrap">
-                        <img src="img/point-down.png" alt="" />
-                    </div>
-
-                    <div class="project-info"
-                        onclick="window.open('https://1drv.ms/f/c/1e390b73717f4a21/EiFKf3FzCzkggB6_MAAAAAABd4BInXe1kDyakDo-IlyYeA?e=w2EZXj', '_blank');"
-                        style="cursor: pointer;">
-
-                        <h2>
-                            <a href="https://1drv.ms/f/c/1e390b73717f4a21/EiFKf3FzCzkggB6_MAAAAAABd4BInXe1kDyakDo-IlyYeA?e=w2EZXj">Click
-                                me for more Posts Examples
-                            </a>
-                        </h2>
-
-                        <p>One Drive</p>
-                    </div>
-                </article>
-
+    <!-- Main content -->
+    <main class="container mx-auto p-4 pt-24">
+        <!-- Hero section -->
+        <section class="scroll-reveal relative text-center py-12 md:py-20 flex flex-col items-center gap-6 md:gap-8 overflow-hidden mt-4 md:mt-8">
+            <div class="jp-matrix" id="matrix-container"></div>
+            <div class="relative z-10">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide font-[Poppins] drop-shadow-lg px-4">
+                    Design Portfolio
+                </h1>
+                <p class="text-lg md:text-2xl text-white italic mt-4 font-light drop-shadow px-4">
+                    Showcasing logos, templates, and creative designs.
+                </p>
             </div>
         </section>
-        <!--Fin contenido-->
 
-        <footer id="footer">
-            <div class="logo">
-                Portfolio
+        <!-- Designs section -->
+        <section class="scroll-reveal py-8 md:py-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 dark:text-white">Designs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/KronosTech-Logo-500x500.png" alt="KronoTech Logo" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">KronoTech.ID</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Logo</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/Peeko-Safari.png" alt="Peeko Safari Logo" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Peeko Safari</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Logo</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/TheChampionBook.png" alt="The Champion Book Logo" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">The ChampionBook</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Logo</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/ProfilePhotoIG.png" alt="MerlinBook.AI Logo" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">MerlinBook.AI</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Logo</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/TemplateGuestoftheDay2.png" alt="Guest Of The Day - Bali Resort Template" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Guest Of The Day - Bali Resort</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Stories</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/moodboard.png" alt="Moodboard Design" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Moodboard</h3>
+                        <p class="text-gray-600 dark:text-gray-400">1080 x 1080 px</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/infopost.png" alt="Info Post Design" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Info-Post</h3>
+                        <p class="text-gray-600 dark:text-gray-400">1080 x 1080 px</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <div class="image-wrap">
+                        <img src="img/leftorright.png" alt="Left or Right Post Design" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Left or Right Post</h3>
+                        <p class="text-gray-600 dark:text-gray-400">1080 x 1080 px</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://1drv.ms/f/c/1e390b73717f4a21/EiFKf3FzCzkggB6_MAAAAAABd4BInXe1kDyakDo-IlyYeA?e=w2EZXj" target="_blank">
+                        <div class="image-wrap">
+                            <img src="img/point-down.png" alt="More Posts Examples" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Click me for more Posts Examples</h3>
+                            <p class="text-gray-600 dark:text-gray-400">One Drive</p>
+                        </div>
+                    </a>
+                </div>
             </div>
+        </section>
+    </main>
 
-            <div class="info">
-                This Website was made using HTML and CSS Grid - Marcos López Sapitri &copy;
-            </div>
-        </footer>
+    <!-- Footer -->
+    <footer class="scroll-reveal bg-black dark:bg-gray-900 shadow-md py-4">
+        <div class="container mx-auto text-center">
+            <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
+        </div>
+    </footer>
 
+    <script src="js/main.min.js"></script>
 
-    </div>
 </body>
 
 </html>

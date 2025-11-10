@@ -2,40 +2,32 @@
 <html lang="en">
 
 <head>
-    <!-- 🌐 Configuración básica -->
-     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Marcos Lopez Sapitri is a creative professional showcasing various projects in design, marketing, and content creation.">
-    <meta name="keywords"
-        content="Marcos Lopez Sapitri, Creative Professional, Design Projects, Marketing, Content Creation, Portfolio">
+    <meta name="description" content="Marcos Lopez Sapitri is a creative professional showcasing various projects in design, marketing, and content creation.">
+    <meta name="keywords" content="Marcos Lopez Sapitri, Creative Professional, Design Projects, Marketing, Content Creation, Portfolio">
     <meta name="author" content="Marcos Lopez Sapitri">
-
     <title>Marcos Lopez Sapitri - Creative Professional Portfolio</title>
-
-    <!-- 🖼️ SEO y redes sociales -->
+    
+    <!-- SEO y redes sociales -->
     <meta property="og:title" content="Marcos Lopez Sapitri - Creative Professional Portfolio">
-    <meta property="og:description"
-        content="Creative portfolio showcasing projects in design, marketing, and content creation.">
+    <meta property="og:description" content="Creative portfolio showcasing projects in design, marketing, and content creation.">
     <meta property="og:image" content="img/preview.jpg">
-    <meta property="og:url" content="https://marcoslasaye.github.io/Archipielago.Group/">
+    <meta property="og:url" content="https://marcoslasaye.github.io/Portfolio/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Marcos Lopez Sapitri - Creative Professional Portfolio">
-    <meta name="twitter:description"
-        content="Creative portfolio showcasing projects in design, marketing, and content creation.">
+    <meta name="twitter:description" content="Creative portfolio showcasing projects in design, marketing, and content creation.">
     <meta name="twitter:image" content="img/preview.jpg">
+    <link rel="canonical" href="https://marcoslasaye.github.io/Portfolio/">
 
-    <!-- 🎨 Estilos y fuentes -->
+    <!-- Estilos y fuentes -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.min.css">
 
-    <!-- ⚡ Tailwind CSS -->
+    <!-- Tailwind CSS -->
     <script>
         tailwind.config = {
             theme: {
@@ -50,7 +42,7 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- 📊 Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -58,62 +50,52 @@
         gtag('js', new Date());
         gtag('config', 'G-G71M1EQ936');
     </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marcos Lopez Sapitri",
+        "jobTitle": "Creative Professional",
+        "url": "https://marcoslasaye.github.io/Portfolio/",
+        "sameAs": [
+            "https://linktr.ee/marcoslasaye"
+        ]
+    }
+    </script>
 </head>
 
 
-<body class="bg-gray-100 text-gray-900">
-    <!-- ============================================ -->
-    <!-- HEADER / BARRA DE NAVEGACIÓN SUPERIOR -->
-    <!-- ============================================ -->
-    <!-- 
-        Esta es la barra de navegación que se queda fija en la parte superior de la página.
-        - fixed: se queda fija al hacer scroll
-        - z-50: está por encima de otros elementos
-        - backdrop-blur-md: efecto de desenfoque de fondo
-    -->
-    <header id="main-header"
-        class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 border-b border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700">
-
-        <!-- Contenedor principal del header con flexbox para organizar logo y menú -->
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 dark:bg-gray-900/10 border-b border-white/20 dark:border-gray-700/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700">
         <div class="container mx-auto flex justify-between items-center p-4">
-            <!-- Logo: imagen clickeable que lleva a la página principal -->
             <a href="/" class="flex items-center space-x-3">
                 <img src="img/favicon.ico" alt="Marcos Lopez Sapitri Logo" class="h-10 w-10 rounded-lg shadow-lg">
             </a>
 
-            <!-- Menú de navegación para pantallas grandes (desktop) -->
-            <!-- hidden md:flex: oculto en móvil, visible en pantallas medianas y grandes -->
             <nav class="hidden md:flex space-x-6 items-center">
-                <!-- Enlace a la página de proyectos -->
                 <a href="index.html" class="user-profile">
                     <div class="user-profile-inner">
                         <p>Projects</p>
                     </div>
                 </a>
-
-                <!-- Enlace a la página de diseños -->
                 <a href="Designs.html" class="user-profile">
                     <div class="user-profile-inner">
                         <p>Designs</p>
                     </div>
                 </a>
-
-                <!-- Enlace a la página "Sobre mí" -->
                 <a href="AboutMe.html" class="user-profile">
                     <div class="user-profile-inner">
                         <p>About Me</p>
                     </div>
                 </a>
-
-                <!-- Enlace a la página del CV -->
                 <a href="personalCV.html" class="user-profile">
                     <div class="user-profile-inner">
                         <p>CV</p>
                     </div>
                 </a>
-
-                <!-- Enlace externo a Linktree para contacto -->
-                <!-- target="_blank": abre en una nueva pestaña -->
                 <a href="https://linktr.ee/marcoslasaye" target="_blank" class="user-profile">
                     <div class="user-profile-inner">
                         <p>Contact</p>
@@ -121,268 +103,158 @@
                 </a>
             </nav>
 
-            <!-- Botón del menú hamburguesa para móviles -->
-            <!-- md:hidden: solo visible en pantallas pequeñas (móviles) -->
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
+            <!-- Toggle dark mode y botón hamburguesa -->
+            <div class="flex items-center space-x-4">
+                <label class="switch">
+                    <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+                    <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>
+                    <input type="checkbox" class="input" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- ============================================ -->
-    <!-- MENÚ MÓVIL (Hamburguesa) -->
-    <!-- ============================================ -->
-    <!-- 
-        Menú desplegable que aparece cuando haces clic en el botón hamburguesa en móviles.
-        - hidden: oculto por defecto
-        - md:hidden: oculto en pantallas medianas y grandes
-        - Se muestra/oculta con JavaScript cuando haces clic en el botón hamburguesa
-    -->
-    <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 w-full bg-white shadow-lg z-50">
-        <nav class="flex flex-col space-y-4 p-4">
-            <a href="index.html" class="text-gray-800 hover:text-gray-600">Projects</a>
-            <a href="AboutMe.html" class="text-gray-800 hover:text-gray-600">About Me</a>
-            <a href="personalCV.html" class="text-gray-800 hover:text-gray-600">CV</a>
-            <a href="https://linktr.ee/marcoslasaye" target="_blank"
-                class="text-gray-800 hover:text-gray-600">Contact</a>
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 w-full backdrop-blur-md bg-white/90 dark:bg-gray-900/90 shadow-lg z-50">
+        <nav class="flex flex-col space-y-3 p-4">
+            <a href="index.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>Projects</p>
+                </div>
+            </a>
+            <a href="Designs.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>Designs</p>
+                </div>
+            </a>
+            <a href="AboutMe.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>About Me</p>
+                </div>
+            </a>
+            <a href="personalCV.html" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>CV</p>
+                </div>
+            </a>
+            <a href="https://linktr.ee/marcoslasaye" target="_blank" class="mobile-menu-item">
+                <div class="mobile-menu-inner">
+                    <p>Contact</p>
+                </div>
+            </a>
         </nav>
     </div>
 
-    <!-- ============================================ -->
-    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
-    <!-- ============================================ -->
-    <!-- 
-        main: contenedor principal del contenido de la página
-        - container mx-auto: centra el contenido y le da un ancho máximo
-        - pt-24: padding-top para que no quede oculto debajo del header fijo
-    -->
+    <!-- Main content -->
     <main class="container mx-auto p-4 pt-24">
-        
-        <!-- ============================================ -->
-        <!-- HERO SECTION / SECCIÓN PRINCIPAL -->
-        <!-- ============================================ -->
-        <!-- 
-            Esta es la sección principal con el título grande y el fondo animado.
-            - scroll-reveal: clase para animación al hacer scroll (definida en JS)
-            - relative: permite posicionar elementos absolutos dentro
-            - overflow-hidden: oculta el contenido que se sale del contenedor
-        -->
-        <section class="scroll-reveal relative text-center py-20 flex flex-col items-center gap-8 overflow-hidden mt-8">
-            
-            <!-- ============================================ -->
-            <!-- EFECTO MATRIX (Fondo animado) -->
-            <!-- ============================================ -->
-            <!-- 
-                Efecto de patrón matrix con caracteres japoneses que pulsan
-                Basado en: https://uiverse.io/solowzrd/wet-lionfish-63
-                Los caracteres se generan dinámicamente con JavaScript
-            -->
-            <div class="jp-matrix" id="matrix-container">
-                <!-- Los caracteres se generan dinámicamente con JavaScript -->
-            </div>
-
-            <!-- Contenido de texto sobre las capas de fondo -->
-            <!-- relative z-10: asegura que el texto esté por encima de los fondos -->
+        <!-- Hero section -->
+        <section class="scroll-reveal relative text-center py-12 md:py-20 flex flex-col items-center gap-6 md:gap-8 overflow-hidden mt-4 md:mt-8">
+            <div class="jp-matrix" id="matrix-container"></div>
             <div class="relative z-10">
-                <!-- Título principal grande -->
-                <h1 class="text-5xl font-extrabold text-white tracking-wide font-[Poppins] drop-shadow-lg">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide font-[Poppins] drop-shadow-lg px-4">
                     Marcos López Sapitri — Creative Professional
                 </h1>
-                <!-- Subtítulo descriptivo -->
-                <p class="text-2xl text-white italic mt-4 font-light drop-shadow">
+                <p class="text-lg md:text-2xl text-white italic mt-4 font-light drop-shadow px-4">
                     Showcasing projects in design, marketing & content creation.
                 </p>
             </div>
-
-            <!-- Botón de llamada a la acción (CTA) -->
-            <!-- 
-                Botón amarillo que lleva a la página "About Me"
-                - animated-div: clase personalizada con efectos de animación
-                - hover:scale-105: se agranda ligeramente al pasar el mouse
-            -->
-            <a href="AboutMe.html"
-                class="animated-div bg-yellow-500 text-white font-semibold px-6 py-3 mt-8 inline-block shadow-lg hover:shadow-xl transform transition-transform duration-300 hover:scale-105 z-10">
+            <a href="AboutMe.html" class="animated-div bg-yellow-500 dark:bg-yellow-600 text-white font-semibold px-6 py-3 mt-8 inline-block shadow-lg hover:shadow-xl transform transition-transform duration-300 hover:scale-105 z-10">
                 Explore More
             </a>
         </section>
 
-
-        <!-- ============================================ -->
-        <!-- SECCIÓN DE PROYECTOS -->
-        <!-- ============================================ -->
-        <!-- 
-            Esta sección muestra todos los proyectos en una cuadrícula (grid)
-            - scroll-reveal: animación al hacer scroll
-            - py-16: padding vertical para espaciado
-        -->
-        <section class="scroll-reveal py-16">
-            <!-- Título de la sección -->
-            <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
-            
-            <!-- Grid de proyectos -->
-            <!-- 
-                grid: sistema de cuadrícula para organizar los proyectos
-                - grid-cols-1: 1 columna en móvil
-                - md:grid-cols-2: 2 columnas en pantallas medianas (tablets)
-                - lg:grid-cols-3: 3 columnas en pantallas grandes (desktop)
-                - gap-8: espacio entre las tarjetas
-            -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- ============================================ -->
-                <!-- TARJETA DE PROYECTO 1: Meliwood -->
-                <!-- ============================================ -->
-                <!-- 
-                    Cada tarjeta de proyecto tiene:
-                    - bg-white: fondo blanco
-                    - shadow-md: sombra para dar profundidad
-                    - rounded-lg: esquinas redondeadas
-                    - hover:scale-105: se agranda ligeramente al pasar el mouse
-                    - overflow-hidden: oculta contenido que se sale
-                -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                    <!-- Enlace externo al proyecto (abre en nueva pestaña) -->
+        <!-- Projects section -->
+        <section class="scroll-reveal py-8 md:py-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 dark:text-white">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://meliwood.my.canva.site/" target="_blank">
-                        <!-- Imagen del proyecto -->
-                        <img src="img/MeliwoodBali_Logo.png" alt="Meliwood Furniture & Decor"
-                            class="w-full h-48 object-cover">
-                        <!-- Información del proyecto -->
+                        <img src="img/MeliwoodBali_Logo.png" alt="Meliwood Furniture & Decor" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Meliwood Furniture & Decor</h3>
-                            <p class="text-gray-600">Link Page</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Meliwood Furniture & Decor</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Link Page</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 2: Nueva Idea Marketing -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://linktr.ee/nuevaideamkt" target="_blank">
-                        <img src="./img/NuevaIdeaMkt_Logo.png" alt="Nueva Idea Marketing"
-                            class="w-full h-48 object-cover">
+                        <img src="./img/NuevaIdeaMkt_Logo.png" alt="Nueva Idea Marketing" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Nueva Idea Marketing</h3>
-                            <p class="text-gray-600">Link Page</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Nueva Idea Marketing</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Link Page</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 3: Content Calendar Examples -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                    <a href="https://drive.google.com/drive/folders/15shjGXgUlR9oC2uuGuTWPQa2vRL8pznh?usp=sharing"
-                        target="_blank">
-                        <img src="img/Content_Marketing.png" alt="Calendar Content Marketing"
-                            class="w-full h-48 object-cover">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://drive.google.com/drive/folders/15shjGXgUlR9oC2uuGuTWPQa2vRL8pznh?usp=sharing" target="_blank">
+                        <img src="img/Content_Marketing.png" alt="Calendar Content Marketing" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">2 Content Calendar Examples + Marketing Docs and
-                                Strategies</h3>
-                            <p class="text-gray-600">Google Drive</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">2 Content Calendar Examples + Marketing Docs and Strategies</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Google Drive</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 4: Travel Blog -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://marcosinbali.blogspot.com/" target="_blank">
-                        <img src="img/Travel_Blog_Logo.png" alt="Marcoslasaye Bali Travel Blog"
-                            class="w-full h-48 object-cover">
+                        <img src="img/Travel_Blog_Logo.png" alt="Marcoslasaye Bali Travel Blog" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Marcoslasaye in Bali</h3>
-                            <p class="text-gray-600">Travel Blog</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Marcoslasaye in Bali</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Travel Blog</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 5: Land in Kintamani -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                    <a href="https://www.canva.com/design/DAGUwHI8tDE/ROYe2EpL7exb8LO_mc6VBA/watch?utm_content=DAGUwHI8tDE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h10df0e9cf3"
-                        target="_blank">
-                        <img src="img/Archipielago.jpg" alt="Property in Bali Presentation"
-                            class="w-full h-48 object-cover">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://www.canva.com/design/DAGUwHI8tDE/ROYe2EpL7exb8LO_mc6VBA/watch?utm_content=DAGUwHI8tDE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h10df0e9cf3" target="_blank">
+                        <img src="img/Archipielago.jpg" alt="Property in Bali Presentation" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Land in Kintamani, Bali</h3>
-                            <p class="text-gray-600">Canva Public View Link</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Land in Kintamani, Bali</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Canva Public View Link</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 6: Blue Coral Karimunjawa -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                    <a href="https://www.canva.com/design/DAGOQzxKFKQ/hvk8Hgz_ZyY1xRCE0dHUHw/watch?utm_content=DAGOQzxKFKQ&utm_campaign=designshare&utm_medium=link&utm_source=editor"
-                        target="_blank">
-                        <img src="img/AerialView_BlueCoralKarimunjawa_min.jpg" alt="Aerial View Blue Coral Karimunjawa"
-                            class="w-full h-48 object-cover">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <a href="https://www.canva.com/design/DAGOQzxKFKQ/hvk8Hgz_ZyY1xRCE0dHUHw/watch?utm_content=DAGOQzxKFKQ&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank">
+                        <img src="img/AerialView_BlueCoralKarimunjawa_min.jpg" alt="Aerial View Blue Coral Karimunjawa" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Blue Coral Karimunjawa</h3>
-                            <p class="text-gray-600">Leasehold Project (English)</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Blue Coral Karimunjawa</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Leasehold Project (English)</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 7: Bamboo Oasis Resort -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://linktr.ee/Bamboo.Oasis.Bali" target="_blank">
-                        <img src="img/Banner-Bamboo-Oasis-1x1mt_page-0001.jpg" alt="Bamboo Oasis Resort - Bali"
-                            class="w-full h-48 object-cover">
+                        <img src="img/Banner-Bamboo-Oasis-1x1mt_page-0001.jpg" alt="Bamboo Oasis Resort - Bali" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Bamboo Oasis Resort - Bali</h3>
-                            <p class="text-gray-600">Resort Online Presence</p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Bamboo Oasis Resort - Bali</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Resort Online Presence</p>
                         </div>
                     </a>
                 </div>
-
-                <!-- TARJETA DE PROYECTO 8: More Designs (enlace interno) -->
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                     <a href="https://marcoslasaye.github.io/Portfolio/Designs.html" target="_blank">
-                        <img src="img/More_Designs.png" alt="Click Here for more Designs"
-                            class="w-full h-48 object-cover">
+                        <img src="img/More_Designs.png" alt="Click Here for more Designs" class="w-full h-48 object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Click Here for more Designs </h3>
-                            <p class="text-gray-600">Designs </p>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Click Here for more Designs</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Designs</p>
                         </div>
                     </a>
                 </div>
-
             </div>
         </section>
     </main>
 
-    <!-- ============================================ -->
-    <!-- FOOTER / PIE DE PÁGINA -->
-    <!-- ============================================ -->
-    <!-- 
-        Footer fijo en la parte inferior de la página
-        - bg-black: fondo negro
-        - shadow-md: sombra para dar profundidad
-        - py-4: padding vertical
-        - scroll-reveal: animación al hacer scroll
-    -->
-    <footer class="scroll-reveal bg-black shadow-md py-4">
+    <!-- Footer -->
+    <footer class="scroll-reveal bg-black dark:bg-gray-900 shadow-md py-4">
         <div class="container mx-auto text-center">
-            <!-- Copyright -->
             <p class="text-white">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- ============================================ -->
-    <!-- SCRIPTS / JAVASCRIPT -->
-    <!-- ============================================ -->
-    <!-- 
-        Script principal de JavaScript que contiene:
-        - Funcionalidad del menú móvil (hamburguesa)
-        - Animaciones de scroll (scroll-reveal)
-        - Cualquier otra funcionalidad interactiva
-    -->
-    <script src="js/main.js"></script>
+    <script src="js/main.min.js"></script>
 
 </body>
 

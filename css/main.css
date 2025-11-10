@@ -1,40 +1,14 @@
-/* ============================================ */
-/* CONFIGURACIÓN GENERAL DEL CUERPO */
-/* ============================================ */
-
-/* --- Adaptación del efecto Uiverse al botón amarillo --- */
-
-/* 
-    Configuración del body para mejorar el renderizado de fuentes
-    -webkit-font-smoothing: suaviza las fuentes en navegadores WebKit (Chrome, Safari)
-    -moz-osx-font-smoothing: suaviza las fuentes en Firefox en macOS
-*/
+/* Configuración general */
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* 
-    Prevención del overscroll (rebote) en la página
-    overscroll-behavior: none: evita el efecto de rebote al llegar al final de la página
-    Esto mejora la experiencia de usuario, especialmente en móviles
-*/
-html,
-body {
+html, body {
     overscroll-behavior: none;
 }
 
-/* ============================================ */
-/* BOTÓN ANIMADO AMARILLO (Explore More) */
-/* ============================================ */
-
-/* 
-    Estilos base del botón amarillo animado
-    Este es el botón "Explore More" en la sección hero
-    - position: relative: permite posicionar el pseudo-elemento ::after
-    - border-radius: 6em: hace el botón completamente redondeado
-    - background-color: #eab308: color amarillo de Tailwind (yellow-500)
-*/
+/* Botón animado amarillo */
 .animated-div {
     position: relative;
     font-size: 17px;
@@ -50,38 +24,19 @@ body {
     font-weight: 500;
     color: white;
     background-color: #eab308;
-    /* Amarillo original */
 }
 
-/* 
-    Efecto cuando pasas el mouse sobre el botón (hover)
-    - translateY(-3px): se eleva 3px hacia arriba
-    - box-shadow: añade una sombra para dar profundidad
-    - background-color: cambia a un amarillo más oscuro (#ca8a04 = yellow-600)
-*/
 .animated-div:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
     background-color: #ca8a04;
 }
 
-/* 
-    Efecto cuando haces clic en el botón (active)
-    - translateY(-1px): se eleva menos que en hover (efecto de "presionado")
-    - box-shadow: sombra más pequeña
-*/
 .animated-div:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 
-    Pseudo-elemento ::after que crea el efecto de expansión
-    Este elemento está detrás del botón (z-index: -1) y se expande al hacer hover
-    - content: "": necesario para que el pseudo-elemento exista
-    - position: absolute: se posiciona detrás del botón
-    - z-index: -1: queda detrás del contenido del botón
-*/
 .animated-div::after {
     content: "";
     display: inline-block;
@@ -96,207 +51,93 @@ body {
     background-color: #eab308;
 }
 
-/* 
-    Efecto cuando pasas el mouse: el pseudo-elemento se expande y desaparece
-    - scaleX(1.4) scaleY(1.6): se expande más en altura que en ancho
-    - opacity: 0: se desvanece mientras se expande
-    Esto crea un efecto visual de "explosión" o "onda" al hacer hover
-*/
 .animated-div:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
 
 
-/* ============================================ */
-/* EFECTO MATRIX (Fondo Hero) - Uiverse */
-/* ============================================ */
-/* 
-    Efecto de patrón matrix con animaciones de pulso
-    Basado en: https://uiverse.io/solowzrd/wet-lionfish-63
-    Crea un fondo animado con caracteres japoneses que pulsan con diferentes colores
-*/
-
-/* 
-    Contenedor principal del efecto matrix
-    - background-color: #05050a: fondo oscuro casi negro
-    - display: grid: sistema de cuadrícula para organizar los caracteres
-    - grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)): columnas automáticas de mínimo 40px
-    - grid-auto-rows: 40px: filas automáticas de 40px
-    - overflow: hidden: oculta el contenido que se sale del contenedor
-*/
+/* Efecto Matrix - Uiverse */
 .jp-matrix {
     background-color: #05050a;
     width: 100%;
     height: 100%;
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    grid-auto-rows: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    grid-auto-rows: 30px;
     position: absolute;
     inset: 0;
     z-index: 0;
-    font-size: 32px;
+    font-size: 24px;
     color: rgba(0, 150, 255, 0.4);
     font-family: "Courier New", Courier, monospace;
-    justify-content: center;
-    align-content: center;
 }
 
-/* 
-    Estilos para cada carácter (span) del matrix
-    - text-align: center: centra el texto
-    - text-shadow: 0 0 5px rgba(0, 150, 255, 0.5): sombra de texto azul
-    - user-select: none: evita que el usuario seleccione el texto
-    - transition: transiciones suaves para color y text-shadow
-*/
+@media (min-width: 768px) {
+    .jp-matrix {
+        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+        grid-auto-rows: 40px;
+        font-size: 32px;
+    }
+}
+
 .jp-matrix > span {
     text-align: center;
     text-shadow: 0 0 5px rgba(0, 150, 255, 0.5);
     user-select: none;
-    transition:
-        color 0.5s,
-        text-shadow 0.5s;
+    transition: color 0.5s, text-shadow 0.5s;
     line-height: 1;
 }
 
-/* 
-    Animaciones de pulso para diferentes grupos de caracteres
-    Cada nth-child selecciona diferentes grupos de caracteres y les aplica
-    animaciones de pulso con diferentes duraciones y delays
-    Esto crea un efecto visual de "ondas" de color que se mueven por el matrix
-*/
+.jp-matrix > span:nth-child(19n + 2) { animation: smooth-pulse 3.5s ease-in-out infinite 0.2s; }
+.jp-matrix > span:nth-child(29n + 1) { animation: smooth-pulse 4.1s ease-in-out infinite 0.7s; }
+.jp-matrix > span:nth-child(11n) { color: rgba(100, 200, 255, 0.7); animation: smooth-pulse 2.9s ease-in-out infinite 1.1s; }
+.jp-matrix > span:nth-child(37n + 10) { animation: smooth-pulse 5.3s ease-in-out infinite 1.5s; }
+.jp-matrix > span:nth-child(41n + 1) { animation: smooth-pulse 3.9s ease-in-out infinite 0.4s; }
+.jp-matrix > span:nth-child(17n + 9) { animation: smooth-pulse 2.8s ease-in-out infinite 0.9s; }
+.jp-matrix > span:nth-child(23n + 18) { animation: smooth-pulse 4.3s ease-in-out infinite 1.3s; }
+.jp-matrix > span:nth-child(31n + 4) { animation: smooth-pulse 5.6s ease-in-out infinite 0.1s; }
+.jp-matrix > span:nth-child(43n + 20) { animation: smooth-pulse 3.6s ease-in-out infinite 1.8s; }
+.jp-matrix > span:nth-child(13n + 6) { animation: smooth-pulse 3.2s ease-in-out infinite 1.2s; }
+.jp-matrix > span:nth-child(53n + 5) { animation: smooth-pulse 4.9s ease-in-out infinite 0.5s; }
+.jp-matrix > span:nth-child(47n + 15) { animation: smooth-pulse 5.9s ease-in-out infinite 1s; }
 
-/* Grupo 1: pulso cada 3.5s con delay de 0.2s */
-.jp-matrix > span:nth-child(19n + 2) {
-    animation: smooth-pulse 3.5s ease-in-out infinite 0.2s;
-}
-
-/* Grupo 2: pulso cada 4.1s con delay de 0.7s */
-.jp-matrix > span:nth-child(29n + 1) {
-    animation: smooth-pulse 4.1s ease-in-out infinite 0.7s;
-}
-
-/* Grupo 3: pulso cada 2.9s con delay de 1.1s, color más brillante */
-.jp-matrix > span:nth-child(11n) {
-    color: rgba(100, 200, 255, 0.7);
-    animation: smooth-pulse 2.9s ease-in-out infinite 1.1s;
-}
-
-/* Grupo 4: pulso cada 5.3s con delay de 1.5s */
-.jp-matrix > span:nth-child(37n + 10) {
-    animation: smooth-pulse 5.3s ease-in-out infinite 1.5s;
-}
-
-/* Grupo 5: pulso cada 3.9s con delay de 0.4s */
-.jp-matrix > span:nth-child(41n + 1) {
-    animation: smooth-pulse 3.9s ease-in-out infinite 0.4s;
-}
-
-/* Grupo 6: pulso cada 2.8s con delay de 0.9s */
-.jp-matrix > span:nth-child(17n + 9) {
-    animation: smooth-pulse 2.8s ease-in-out infinite 0.9s;
-}
-
-/* Grupo 7: pulso cada 4.3s con delay de 1.3s */
-.jp-matrix > span:nth-child(23n + 18) {
-    animation: smooth-pulse 4.3s ease-in-out infinite 1.3s;
-}
-
-/* Grupo 8: pulso cada 5.6s con delay de 0.1s */
-.jp-matrix > span:nth-child(31n + 4) {
-    animation: smooth-pulse 5.6s ease-in-out infinite 0.1s;
-}
-
-/* Grupo 9: pulso cada 3.6s con delay de 1.8s */
-.jp-matrix > span:nth-child(43n + 20) {
-    animation: smooth-pulse 3.6s ease-in-out infinite 1.8s;
-}
-
-/* Grupo 10: pulso cada 3.2s con delay de 1.2s */
-.jp-matrix > span:nth-child(13n + 6) {
-    animation: smooth-pulse 3.2s ease-in-out infinite 1.2s;
-}
-
-/* Grupo 11: pulso cada 4.9s con delay de 0.5s */
-.jp-matrix > span:nth-child(53n + 5) {
-    animation: smooth-pulse 4.9s ease-in-out infinite 0.5s;
-}
-
-/* Grupo 12: pulso cada 5.9s con delay de 1s */
-.jp-matrix > span:nth-child(47n + 15) {
-    animation: smooth-pulse 5.9s ease-in-out infinite 1s;
-}
-
-/* 
-    Animación de pulso suave que cambia el color y la sombra del texto
-    - 0%, 100%: color azul oscuro (estado inicial)
-    - 30%: color azul claro brillante
-    - 50%: color rosa brillante
-    - 70%: color blanco brillante (pico máximo)
-    Esto crea un efecto de "ondas" de color que se mueven por el matrix
-*/
 @keyframes smooth-pulse {
-    0%,
-    100% {
+    0%, 100% {
         color: rgba(0, 150, 255, 0.4);
         text-shadow: 0 0 5px rgba(0, 150, 255, 0.5);
     }
     30% {
         color: rgba(100, 200, 255, 1);
-        text-shadow:
-            0 0 10px rgba(100, 200, 255, 1),
-            0 0 15px rgba(100, 200, 255, 1);
+        text-shadow: 0 0 10px rgba(100, 200, 255, 1), 0 0 15px rgba(100, 200, 255, 1);
     }
     50% {
         color: rgba(255, 105, 180, 1);
-        text-shadow:
-            0 0 10px rgba(255, 105, 180, 1),
-            0 0 15px rgba(255, 105, 180, 1);
+        text-shadow: 0 0 10px rgba(255, 105, 180, 1), 0 0 15px rgba(255, 105, 180, 1);
     }
     70% {
         color: #ffffff;
-        text-shadow:
-            0 0 10px #fff,
-            0 0 15px #fff,
-            0 0 20px #fff;
+        text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
     }
 }
 
-/* ============================================ */
-/* ESTILOS DE LA SECCIÓN HERO (Primera sección) */
-/* ============================================ */
-
-/* 
-    Estilos especiales para la primera sección (hero section)
-    - border-radius: 50px: esquinas muy redondeadas
-    - box-shadow: sombra externa e interna para efecto de profundidad
-    - transform: perspective(1000px) rotateX(2deg): efecto 3D sutil (inclinación)
-    - border: borde semitransparente para efecto glassmorphism
-*/
+/* Hero section */
 section:first-child {
     border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
-        inset 0 4px 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 4px 10px rgba(255, 255, 255, 0.2);
     transform: perspective(1000px) rotateX(2deg);
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ============================================ */
-/* ANIMACIONES DE SCROLL (Reveal) */
-/* ============================================ */
+@media (max-width: 768px) {
+    section:first-child {
+        border-radius: 30px;
+        transform: none;
+    }
+}
 
-/* --- Scroll animation con desplazamiento bidireccional real --- */
-
-/* 
-    Estado inicial de los elementos con clase scroll-reveal
-    Los elementos empiezan invisibles y desplazados hacia abajo
-    - opacity: 0: invisible inicialmente
-    - translateY(80px): desplazado 80px hacia abajo
-    - scale(0.9): ligeramente más pequeño
-    - will-change: optimiza el rendimiento indicando que estos valores cambiarán
-    Esta clase se aplica a secciones que queremos que aparezcan al hacer scroll
-*/
+/* Scroll reveal animations */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(80px) scale(0.9);
@@ -304,136 +145,72 @@ section:first-child {
     will-change: opacity, transform;
 }
 
-/* 
-    Estado visible cuando el elemento entra en el viewport
-    JavaScript añade esta clase cuando el elemento es visible
-    - opacity: 1: completamente visible
-    - translateY(0): vuelve a su posición original
-    - scale(1): tamaño normal
-    El efecto es que los elementos "aparecen" suavemente al hacer scroll
-*/
 .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
-/* ============================================ */
-/* HEADER / BARRA DE NAVEGACIÓN */
-/* ============================================ */
-
-/* --- NAV STICKY / FIXED & GLASS EFFECT --- */
-
-/* 
-    Estilos base del header (barra de navegación)
-    - backdrop-filter: blur(12px): efecto de desenfoque del fondo (glassmorphism)
-    - -webkit-backdrop-filter: compatibilidad con navegadores WebKit
-    - transition: transición suave para todos los cambios
-*/
+/* Header */
 #main-header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: all 0.5s ease-in-out;
 }
 
-/* 
-    Estado cuando el header tiene la clase "scrolled" (añadida por JavaScript al hacer scroll)
-    - background-color: fondo más opaco cuando se hace scroll
-    - box-shadow: sombra más pronunciada
-    - border-color: borde más visible
-    Esto hace que el header sea más visible cuando haces scroll hacia abajo
-*/
 #main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ============================================ */
-/* MENÚ MÓVIL (Hamburguesa) */
-/* ============================================ */
-
-/* --- Estilo especial solo para el menú móvil --- */
-
-/* 
-    Estilos base de los enlaces del menú móvil
-    - position: relative: permite posicionar el pseudo-elemento ::after
-    - backdrop-filter: blur(8px): efecto glassmorphism
-    - background: fondo semitransparente blanco
-*/
-#mobile-menu nav a {
-    position: relative;
-    display: block;
-    padding: 12px 16px;
-    border-radius: 12px;
-    transition: all 0.3s ease-in-out;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
+.dark #main-header.scrolled {
+    background-color: rgba(17, 24, 39, 0.8);
+    border-color: rgba(75, 85, 99, 0.3);
 }
 
-/* 
-    Efecto hover en los enlaces del menú móvil
-    - background: degradado azul-verde cuando pasas el mouse
-    - translateX(6px): se desplaza ligeramente a la derecha
-    - scale(1.03): se agranda ligeramente
-    - box-shadow: añade sombra para profundidad
-*/
-#mobile-menu nav a:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(20, 184, 166, 0.4));
-    transform: translateX(6px) scale(1.03);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* Menú móvil - estilo similar a desktop */
+.mobile-menu-item {
+    width: 100%;
+    height: 46px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
+    background-color: rgba(46, 142, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:focus {
+    background-color: rgba(46, 142, 255, 0.7);
+    box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
+    outline: none;
+}
+
+.mobile-menu-inner {
+    width: calc(100% - 4px);
+    height: 42px;
+    border-radius: 12px;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
 }
 
-/* 
-    Pseudo-elemento ::after que crea un borde luminoso animado
-    - content: '': necesario para que el pseudo-elemento exista
-    - inset: 0: cubre todo el elemento padre
-    - background: degradado blanco semitransparente
-    - mask: crea un efecto de borde (solo muestra los bordes)
-    - opacity: 0: invisible por defecto
-*/
-#mobile-menu nav a::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+.dark .mobile-menu-inner {
+    background-color: #2d2d2d;
 }
 
-/* 
-    El borde luminoso aparece cuando pasas el mouse sobre el enlace
-    - opacity: 1: se hace visible
-*/
-#mobile-menu nav a:hover::after {
-    opacity: 1;
-}
-
-/* ============================================ */
-/* BOTONES DEL MENÚ DE NAVEGACIÓN (Desktop) */
-/* ============================================ */
-
-/* === Botones estilo Uiverse (adaptados al nav) === */
-
-/* 
-    Contenedor externo del botón del menú
-    Estos son los botones del menú de navegación (Projects, Designs, About Me, etc.)
-    - width/height: tamaño fijo del botón
-    - border-radius: 14px: esquinas redondeadas
-    - background: degradado azul semitransparente
-    - background-color: color de fondo azul con transparencia
-    - display: flex: para centrar el contenido interno
-*/
+/* Botones menú navegación (Desktop) */
 .user-profile {
     width: 130px;
     height: 46px;
@@ -445,14 +222,9 @@ section:first-child {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
-/* 
-    Efecto cuando pasas el mouse o enfocas el botón
-    - background-color: se vuelve más opaco (más azul)
-    - box-shadow: añade un resplandor azul alrededor del botón
-    - outline: none: elimina el borde de enfoque por defecto
-*/
 .user-profile:hover,
 .user-profile:focus {
     background-color: rgba(46, 142, 255, 0.7);
@@ -460,16 +232,6 @@ section:first-child {
     outline: none;
 }
 
-/* 
-    Contenedor interno del botón (donde va el texto)
-    - width/height: ligeramente más pequeño que el contenedor externo (crea un borde)
-    - background-color: #1a1a1a: fondo oscuro (casi negro)
-    - display: flex: para centrar el texto
-    - gap: 10px: espacio entre iconos y texto (si hay iconos)
-    - color: #fff: texto blanco
-    - font-weight: 600: texto semi-negrita
-    - letter-spacing: 0.3px: espaciado entre letras
-*/
 .user-profile-inner {
     width: 126px;
     height: 42px;
@@ -486,13 +248,103 @@ section:first-child {
     transition: color 0.3s ease;
 }
 
-/* 
-    Estilos para iconos SVG dentro de los botones (si los hay)
-    - width/height: 22px: tamaño del icono
-    - fill: #fff: color blanco para el icono
-*/
+.dark .user-profile-inner {
+    background-color: #2d2d2d;
+}
+
 .user-profile-inner svg {
     width: 22px;
     height: 22px;
     fill: #fff;
+}
+
+/* Toggle Dark Mode - Uiverse */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73C0FC;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 2;
+    background-color: #e8e8e8;
+    transition: .4s;
+}
+
+.sun svg {
+    position: absolute;
+    top: 6px;
+    left: 36px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.moon svg {
+    fill: #73C0FC;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.sun svg {
+    animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+.moon svg {
+    animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.input:checked + .slider {
+    background-color: #183153;
+}
+
+.input:focus + .slider {
+    box-shadow: 0 0 1px #183153;
+}
+
+.input:checked + .slider:before {
+    transform: translateX(30px);
 }
