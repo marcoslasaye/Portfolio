@@ -503,3 +503,28 @@ body {
     0%{ transform: scale(1); }
     100%{ transform: scale(1.5); }
 }
+
+/* ==========================================================================
+   TARJETAS CYBERPUNK (ESTILO MATRIZ SUTIL)
+   ========================================================================== */
+.cyber-card {
+    background-color: rgba(10, 20, 15, 0.85) !important;
+    border: 1px solid rgba(57, 255, 20, 0.3) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(57, 255, 20, 0.05) !important;
+    transition: all 0.4s ease;
+}
+
+.cyber-card:hover {
+    border-color: rgba(57, 255, 20, 0.8) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(57, 255, 20, 0.2), 0 0 15px rgba(57, 255, 20, 0.4) !important;
+}
+
+.cyber-card h3 {
+    color: #a3ffa3 !important;
+    font-family: 'Orbitron', 'Courier New', sans-serif;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+}
+
+.cyber-card p {
+    color: #6ee76e !important;
+}
