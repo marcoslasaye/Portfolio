@@ -22,10 +22,24 @@ const HTML_FILES = ['index.html', 'contact.html'];
 /** Ancho maximo por defecto (cards del grid). */
 const CARD_MAX_WIDTH = 800;
 
-/** Overrides por archivo cuando el rol visual es distinto al de una card. */
+/**
+ * Las cards renderizan h-48 (192px) de alto con object-cover, en columnas de
+ * ~400px. O sea que la ventana visible es ~2:1 y el navegador RECORTA el resto:
+ * una imagen 800x1422 llega entera y se muestra solo una banda central.
+ * Recortando aca el mismo encuadre (cover + centro) el resultado visual es
+ * identico y se dejan de enviar los pixeles que el navegador descartaba.
+ */
+const CARD_ASPECT_RATIO = 2;
+
+/**
+ * Overrides por archivo cuando el rol visual es distinto al de una card.
+ * La clave es el nombre SIN extension: el HTML referencia .webp mientras el
+ * original puede ser .jpg o .png, asi que comparar con extension falla.
+ */
 const WIDTH_OVERRIDES = {
-  'marcoslasaye_profile.png': 192, // avatar circular w-24 h-24 (96px CSS)
-  'point-down.png': 160, // flecha decorativa
+  marcoslasaye_profile: 192, // avatar circular w-24 h-24 (96px CSS)
+  point_down: 160, // flecha decorativa (object-contain, no se recorta)
+  'point-down': 160,
 };
 
 /** Calidad WebP. 80 es el punto donde el ojo deja de notar el cambio. */
@@ -56,6 +70,26 @@ async function sizeOf(file) {
   }
 }
 
+/**
+ * El HTML apunta a img/optimized/foo.webp, pero el original suele ser
+ * foo.jpg o foo.png. Se prueba la referencia tal cual y despues el mismo
+ * nombre base con las otras extensiones soportadas.
+ */
+async function resolveSource(name) {
+  const base = path.join(SRC_DIR, path.parse(name).name);
+  const candidates = [
+    path.join(SRC_DIR, name),
+    `${base}.jpg`,
+    `${base}.jpeg`,
+    `${base}.png`,
+    `${base}.webp`,
+  ];
+  for (const candidate of candidates) {
+    if ((await sizeOf(candidate)) > 0) return candidate;
+  }
+  return null;
+}
+
 function formatKb(bytes) {
   return `${(bytes / 1024).toFixed(0)} KB`;
 }
@@ -73,17 +107,36 @@ async function main() {
   let totalOut = 0;
 
   for (const name of [...refs].sort()) {
-    const sourcePath = path.join(SRC_DIR, name);
     if (IGNORED.test(name) || GENERATED.test(name)) continue;
 
-    const maxWidth = WIDTH_OVERRIDES[name] ?? CARD_MAX_WIDTH;
+    const sourcePath = await resolveSource(name);
+    if (!sourcePath) {
+      console.warn(`AVISO: no se encontro el original de ${name} (se omite)`);
+      continue;
+    }
+
+    const overrideKey = path.parse(name).name;
+    const maxWidth = WIDTH_OVERRIDES[overrideKey] ?? CARD_MAX_WIDTH;
     const outputName = `${path.parse(name).name}.webp`;
 
     const image = sharp(sourcePath, { failOn: 'none' });
     const meta = await image.metadata();
 
+    // Las cards se recortan al encuadre 2:1 que ya aplica object-cover.
+    // Las que tienen override propio conservan su relacion de aspecto.
+    const isCard = !(overrideKey in WIDTH_OVERRIDES);
+    const targetWidth = Math.min(maxWidth, meta.width ?? maxWidth);
+    const resizeOptions = isCard
+      ? {
+          width: targetWidth,
+          height: Math.round(targetWidth / CARD_ASPECT_RATIO),
+          fit: 'cover',
+          position: 'centre',
+        }
+      : { width: maxWidth, withoutEnlargement: true };
+
     const { data, info } = await image
-      .resize({ width: maxWidth, withoutEnlargement: true })
+      .resize(resizeOptions)
       .webp({ quality: QUALITY, effort: 5 })
       .toBuffer({ resolveWithObject: true });
 
