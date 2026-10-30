@@ -2,11 +2,8 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    
-    /* Fondo animado suave para modo claro */
-    background: linear-gradient(270deg, #f8fafc, #e2e8f0, #f1f5f9);
-    background-size: 400% 400%;
-    animation: bg-breathe 15s ease infinite;
+    background: #000;
+    isolation: isolate;
 }
 
 html, body {
@@ -29,55 +26,6 @@ html, body {
 .skip-link:focus {
     top: 0;
 }
-
-/* Botón animado amarillo */
-.animated-div {
-    position: relative;
-    font-size: 17px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1em 2.5em;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 6em;
-    transition: all 0.2s;
-    border: none;
-    font-family: inherit;
-    font-weight: 500;
-    color: white;
-    background-color: #eab308;
-}
-
-.animated-div:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    background-color: #ca8a04;
-}
-
-.animated-div:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.animated-div::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-    background-color: #eab308;
-}
-
-.animated-div:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
 
 /* Efecto Matrix - Uiverse */
 .jp-matrix {
@@ -144,8 +92,8 @@ html, body {
     }
 }
 
-/* Hero section */
-section:first-child {
+/* Hero section (clase explicita: section:first-child alcanzaba tambien al hero de contact.html) */
+.hero {
     border-radius: 50px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 4px 10px rgba(255, 255, 255, 0.2);
     transform: perspective(1000px) rotateX(2deg);
@@ -153,7 +101,7 @@ section:first-child {
 }
 
 @media (max-width: 768px) {
-    section:first-child {
+    .hero {
         border-radius: 30px;
         transform: none;
     }
@@ -217,192 +165,6 @@ section:first-child {
     background-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.3);
-}
-
-.dark #main-header.scrolled {
-    background-color: rgba(17, 24, 39, 0.3);
-    border-color: rgba(75, 85, 99, 0.3);
-}
-
-/* Menú móvil - estilo similar a desktop */
-.mobile-menu-item {
-    width: 100%;
-    height: 46px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
-    background-color: rgba(46, 142, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.mobile-menu-item:hover,
-.mobile-menu-item:focus {
-    background-color: rgba(46, 142, 255, 0.7);
-    box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
-    outline: none;
-}
-
-.mobile-menu-inner {
-    width: calc(100% - 4px);
-    height: 42px;
-    border-radius: 12px;
-    background-color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-    transition: color 0.3s ease;
-}
-
-.dark .mobile-menu-inner {
-    background-color: #2d2d2d;
-}
-
-/* Botones menú navegación (Desktop) */
-.user-profile {
-    width: 130px;
-    height: 46px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
-    background-color: rgba(46, 142, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.user-profile:hover,
-.user-profile:focus {
-    background-color: rgba(46, 142, 255, 0.7);
-    box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
-    outline: none;
-}
-
-.user-profile-inner {
-    width: 126px;
-    height: 42px;
-    border-radius: 12px;
-    background-color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-    transition: color 0.3s ease;
-}
-
-.dark .user-profile-inner {
-    background-color: #2d2d2d;
-}
-
-.user-profile-inner svg {
-    width: 22px;
-    height: 22px;
-    fill: #fff;
-}
-
-/* Toggle Dark Mode - Uiverse */
-.switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 64px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #73C0FC;
-    transition: .4s;
-    border-radius: 30px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    left: 2px;
-    bottom: 2px;
-    z-index: 2;
-    background-color: #e8e8e8;
-    transition: .4s;
-}
-
-.sun svg {
-    position: absolute;
-    top: 6px;
-    left: 36px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-}
-
-.moon svg {
-    fill: #73C0FC;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-}
-
-.sun svg {
-    animation: rotate 15s linear infinite;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
-}
-
-.moon svg {
-    animation: tilt 5s linear infinite;
-}
-
-@keyframes tilt {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
-}
-
-.input:checked + .slider {
-    background-color: #183153;
-}
-
-.input:focus + .slider {
-    box-shadow: 0 0 1px #183153;
-}
-
-.input:checked + .slider:before {
-    transform: translateX(30px);
 }
 
 /* ==========================================================================
@@ -480,28 +242,9 @@ section:first-child {
     letter-spacing: 1px;
 }
 
-/* Fondo animado Cyberpunk para modo oscuro */
-.dark body {
-    background: linear-gradient(270deg, #020617, #064e3b, #0f172a);
-    background-size: 400% 400%;
-    animation: bg-breathe 15s ease infinite;
-}
-
-/* La animación compartida para el fondo que hace que "respire" o se mueva */
-@keyframes bg-breathe {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 /* ==========================================================================
    FONDO DE ESTRELLAS ANIMADO
    ========================================================================== */
-body {
-    background: #000 !important;
-    isolation: isolate;
-}
-
 .star-bg {
     position: fixed;
     top: 50%;
