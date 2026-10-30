@@ -55,7 +55,9 @@ const CROP_POSITION = {
   marcoslasayeIG: 'top', // captura de perfil de Instagram
   PeekoSafari_YoutubeChannel: 'top', // captura de canal de YouTube
   Archipielago_Web: 'top', // captura de sitio web
-  TemplateGuestoftheDay2: 'top', // poster vertical 1080x1920
+  // TemplateGuestoftheDay2 se queda en el centro: con 'top' solo entraba el
+  // titulo del poster y quedaban afuera las personas, que es lo que se quiere
+  // mostrar. Si hace falta bajar mas, usar 'bottom' o un porcentaje custom.
 };
 
 /** Calidad WebP. 80 es el punto donde el ojo deja de notar el cambio. */
