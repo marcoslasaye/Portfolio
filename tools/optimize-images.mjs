@@ -42,6 +42,22 @@ const WIDTH_OVERRIDES = {
   'point-down': 160,
 };
 
+/**
+ * Punto focal del recorte 2:1, por nombre sin extension.
+ *
+ * El centro no siempre es el encuadre correcto: en capturas de pantalla y
+ * posters verticales lo importante suele estar arriba (header, logo, titulo)
+ * y el recorte al centro lo corta. OJO: si se cambia aca hay que cambiar
+ * tambien la clase object-* del <img> en el HTML, porque el recorte real ya
+ * viene hecho en el archivo y el CSS solo elige que banda mostrar.
+ */
+const CROP_POSITION = {
+  marcoslasayeIG: 'top', // captura de perfil de Instagram
+  PeekoSafari_YoutubeChannel: 'top', // captura de canal de YouTube
+  Archipielago_Web: 'top', // captura de sitio web
+  TemplateGuestoftheDay2: 'top', // poster vertical 1080x1920
+};
+
 /** Calidad WebP. 80 es el punto donde el ojo deja de notar el cambio. */
 const QUALITY = 80;
 
@@ -131,7 +147,7 @@ async function main() {
           width: targetWidth,
           height: Math.round(targetWidth / CARD_ASPECT_RATIO),
           fit: 'cover',
-          position: 'centre',
+          position: CROP_POSITION[overrideKey] ?? 'centre',
         }
       : { width: maxWidth, withoutEnlargement: true };
 
