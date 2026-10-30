@@ -107,17 +107,20 @@ html, body {
     }
 }
 
-/* Scroll reveal animations */
+/* Scroll reveal animations
+   Nota: nunca aplicar .scroll-reveal a contenido above-the-fold (hero). Ocultar
+   el LCP detras de JS + una transicion larga retrasa la pintura final del
+   elemento principal y penaliza LCP y Speed Index. */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(80px) scale(0.9);
-    transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
 .scroll-reveal.visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -126,10 +129,8 @@ html, body {
 /* Estado base (Ocultas y desplazadas hacia abajo) */
 .scroll-reveal .grid > div {
     opacity: 0;
-    translate: 0 80px; /* Doble de distancia para que se note mucho más el recorrido */
-    transition-property: opacity, translate, transform;
-    transition-duration: 1.2s, 1.2s, 300ms; /* Movimiento más lento y majestuoso */
-    transition-timing-function: ease, cubic-bezier(0.16, 1, 0.3, 1), ease;
+    translate: 0 40px;
+    transition: opacity 0.5s ease, translate 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, translate;
 }
 
@@ -139,20 +140,28 @@ html, body {
     translate: 0 0;
 }
 
-/* Retrasos secuenciales muy marcados al aparecer */
-.scroll-reveal.visible .grid > div:nth-child(1) { transition-delay: 0.15s, 0.15s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(2) { transition-delay: 0.30s, 0.30s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(3) { transition-delay: 0.45s, 0.45s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(4) { transition-delay: 0.60s, 0.60s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(5) { transition-delay: 0.75s, 0.75s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(6) { transition-delay: 0.90s, 0.90s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(7) { transition-delay: 1.05s, 1.05s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(8) { transition-delay: 1.20s, 1.20s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(9) { transition-delay: 1.35s, 1.35s, 0s; }
-.scroll-reveal.visible .grid > div:nth-child(10) { transition-delay: 1.50s, 1.50s, 0s; }
+/* Retrasos secuenciales. Se mantienen cortos a proposito: una cascada larga
+   hace que el ultimo elemento aparezca casi un segundo despues del primero. */
+.scroll-reveal.visible .grid > div:nth-child(1) { transition-delay: 0.05s; }
+.scroll-reveal.visible .grid > div:nth-child(2) { transition-delay: 0.10s; }
+.scroll-reveal.visible .grid > div:nth-child(3) { transition-delay: 0.15s; }
+.scroll-reveal.visible .grid > div:nth-child(4) { transition-delay: 0.20s; }
+.scroll-reveal.visible .grid > div:nth-child(5) { transition-delay: 0.25s; }
+.scroll-reveal.visible .grid > div:nth-child(6) { transition-delay: 0.30s; }
+.scroll-reveal.visible .grid > div:nth-child(7) { transition-delay: 0.35s; }
+.scroll-reveal.visible .grid > div:nth-child(8) { transition-delay: 0.40s; }
+.scroll-reveal.visible .grid > div:nth-child(9) { transition-delay: 0.45s; }
+.scroll-reveal.visible .grid > div:nth-child(10) { transition-delay: 0.50s; }
 
-/* Reseteo instantáneo al salir de pantalla para que no cause demoras molestas al volver */
-.scroll-reveal .grid > div:nth-child(n) { transition-delay: 0s, 0s, 0s; }
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal .grid > div {
+        opacity: 1;
+        transform: none;
+        translate: none;
+        transition: none;
+    }
+}
 
 /* Header */
 #main-header {
