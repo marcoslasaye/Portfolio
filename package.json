@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "optimize:images": "node tools/optimize-images.mjs"
+    "optimize:images": "node tools/optimize-images.mjs",
+    "build:css": "tailwindcss -i src/tailwind.css -o css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i src/tailwind.css -o css/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/marcoslasaye/Portfolio#readme",
   "devDependencies": {
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.17"
   }
 }
