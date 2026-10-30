@@ -30,11 +30,8 @@
 
     <!-- Estilos y fuentes -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;800&family=Ubuntu:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" href="fonts/orbitron-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- Tailwind compilado: despues de main.css para preservar la cascada actual -->
     <link rel="stylesheet" href="css/tailwind.css">
@@ -333,7 +330,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 
 </body>
 
