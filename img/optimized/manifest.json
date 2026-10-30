@@ -1,0 +1,175 @@
+{
+  "generatedAt": "2026-10-30T14:35:12.683Z",
+  "items": [
+    {
+      "source": "img/AerialView_BlueCoralKarimunjawa_min.jpg",
+      "output": "img/optimized/AerialView_BlueCoralKarimunjawa_min.webp",
+      "width": 800,
+      "height": 450,
+      "originalWidth": 4607,
+      "originalHeight": 2592,
+      "bytesIn": 455245,
+      "bytesOut": 90434
+    },
+    {
+      "source": "img/Archipielago.jpg",
+      "output": "img/optimized/Archipielago.webp",
+      "width": 800,
+      "height": 450,
+      "originalWidth": 1920,
+      "originalHeight": 1080,
+      "bytesIn": 210075,
+      "bytesOut": 31438
+    },
+    {
+      "source": "img/Archipielago_Web.png",
+      "output": "img/optimized/Archipielago_Web.webp",
+      "width": 800,
+      "height": 350,
+      "originalWidth": 1876,
+      "originalHeight": 820,
+      "bytesIn": 1289513,
+      "bytesOut": 32844
+    },
+    {
+      "source": "img/Banner-Bamboo-Oasis-1x1mt_page-0001.jpg",
+      "output": "img/optimized/Banner-Bamboo-Oasis-1x1mt_page-0001.webp",
+      "width": 200,
+      "height": 200,
+      "originalWidth": 200,
+      "originalHeight": 200,
+      "bytesIn": 30996,
+      "bytesOut": 5654
+    },
+    {
+      "source": "img/Content_Calendar.png",
+      "output": "img/optimized/Content_Calendar.webp",
+      "width": 800,
+      "height": 362,
+      "originalWidth": 1919,
+      "originalHeight": 868,
+      "bytesIn": 204806,
+      "bytesOut": 31248
+    },
+    {
+      "source": "img/KronosTech-Logo-500x500.png",
+      "output": "img/optimized/KronosTech-Logo-500x500.webp",
+      "width": 500,
+      "height": 500,
+      "originalWidth": 500,
+      "originalHeight": 500,
+      "bytesIn": 214131,
+      "bytesOut": 12164
+    },
+    {
+      "source": "img/MeliwoodBali_Logo.png",
+      "output": "img/optimized/MeliwoodBali_Logo.webp",
+      "width": 500,
+      "height": 500,
+      "originalWidth": 500,
+      "originalHeight": 500,
+      "bytesIn": 49051,
+      "bytesOut": 11530
+    },
+    {
+      "source": "img/PeekoSafari_YoutubeChannel.png",
+      "output": "img/optimized/PeekoSafari_YoutubeChannel.webp",
+      "width": 800,
+      "height": 372,
+      "originalWidth": 1661,
+      "originalHeight": 772,
+      "bytesIn": 1320644,
+      "bytesOut": 53304
+    },
+    {
+      "source": "img/TemplateGuestoftheDay2.png",
+      "output": "img/optimized/TemplateGuestoftheDay2.webp",
+      "width": 800,
+      "height": 1422,
+      "originalWidth": 1080,
+      "originalHeight": 1920,
+      "bytesIn": 1319723,
+      "bytesOut": 51808
+    },
+    {
+      "source": "img/TheChampionBook.png",
+      "output": "img/optimized/TheChampionBook.webp",
+      "width": 500,
+      "height": 500,
+      "originalWidth": 500,
+      "originalHeight": 500,
+      "bytesIn": 41252,
+      "bytesOut": 10078
+    },
+    {
+      "source": "img/Travel_Blog_Logo.png",
+      "output": "img/optimized/Travel_Blog_Logo.webp",
+      "width": 500,
+      "height": 500,
+      "originalWidth": 500,
+      "originalHeight": 500,
+      "bytesIn": 22864,
+      "bytesOut": 6558
+    },
+    {
+      "source": "img/infopost.png",
+      "output": "img/optimized/infopost.webp",
+      "width": 800,
+      "height": 800,
+      "originalWidth": 1080,
+      "originalHeight": 1080,
+      "bytesIn": 1975981,
+      "bytesOut": 62942
+    },
+    {
+      "source": "img/leftorright.png",
+      "output": "img/optimized/leftorright.webp",
+      "width": 800,
+      "height": 800,
+      "originalWidth": 1080,
+      "originalHeight": 1080,
+      "bytesIn": 2680503,
+      "bytesOut": 102170
+    },
+    {
+      "source": "img/marcoslasayeIG.png",
+      "output": "img/optimized/marcoslasayeIG.webp",
+      "width": 800,
+      "height": 548,
+      "originalWidth": 1149,
+      "originalHeight": 787,
+      "bytesIn": 850734,
+      "bytesOut": 52724
+    },
+    {
+      "source": "img/marcoslasaye_profile.png",
+      "output": "img/optimized/marcoslasaye_profile.webp",
+      "width": 192,
+      "height": 192,
+      "originalWidth": 512,
+      "originalHeight": 512,
+      "bytesIn": 303119,
+      "bytesOut": 3620
+    },
+    {
+      "source": "img/moodboard.png",
+      "output": "img/optimized/moodboard.webp",
+      "width": 800,
+      "height": 800,
+      "originalWidth": 1080,
+      "originalHeight": 1080,
+      "bytesIn": 1033619,
+      "bytesOut": 51342
+    },
+    {
+      "source": "img/point-down.png",
+      "output": "img/optimized/point-down.webp",
+      "width": 160,
+      "height": 160,
+      "originalWidth": 512,
+      "originalHeight": 512,
+      "bytesIn": 22081,
+      "bytesOut": 3972
+    }
+  ]
+}

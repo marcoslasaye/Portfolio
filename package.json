@@ -1,0 +1,25 @@
+{
+  "name": "myportfolio",
+  "version": "1.0.0",
+  "description": "<!--\r **marcoslasaye/marcoslasaye** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "optimize:images": "node tools/optimize-images.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoslasaye/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marcoslasaye/Portfolio/issues"
+  },
+  "homepage": "https://github.com/marcoslasaye/Portfolio#readme",
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
