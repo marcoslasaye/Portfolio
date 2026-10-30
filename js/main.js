@@ -18,29 +18,9 @@ window.addEventListener("scroll", () => {
 const menuBtn = document.getElementById('menu-btn');
 const menu = document.getElementById('mobile-menu');
 menuBtn?.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
-});
-
-// Dark mode toggle
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
-
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-if (savedTheme === 'dark') {
-  html.classList.add('dark');
-  themeToggle.checked = true;
-}
-
-// Toggle theme
-themeToggle?.addEventListener('change', (e) => {
-  if (e.target.checked) {
-    html.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    html.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
-  }
+  menu?.classList.toggle('hidden');
+  const expanded = !menu?.classList.contains('hidden');
+  menuBtn.setAttribute('aria-expanded', String(expanded));
 });
 
 // Generate matrix effect

@@ -70,11 +70,16 @@
         ]
     }
     </script>
+    <!-- Sin JS, el contenido no debe quedar invisible -->
+    <noscript>
+        <style>
+            .scroll-reveal { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
 </head>
 
-<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
-
-    <body id="top" class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body id="top" class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <a href="#main" class="skip-link">Skip to content</a>
         <!-- Fondo de estrellas -->
         <div class="star-bg"></div>
 
@@ -83,15 +88,16 @@
             class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 dark:bg-gray-900/10 border-b border-white/20 dark:border-gray-700/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700">
             <div class="container mx-auto flex justify-between items-center p-4">
 
-                <nav class="hidden md:flex w-full space-x-4 lg:space-x-10 items-center justify-center">
-                    <a href="index.html" class="cyber-button">Projects & Designs</a>
+                <nav aria-label="Main" class="hidden md:flex w-full space-x-4 lg:space-x-10 items-center justify-center">
+                    <a href="index.html" class="cyber-button">Projects &amp; Designs</a>
                     <a href="contact.html" class="cyber-button">Contact</a>
                 </nav>
 
                 <!-- Botón hamburguesa -->
                 <div class="flex items-center space-x-4">
-                    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                        <i class="fas fa-bars"></i>
+                    <button id="menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+                        aria-controls="mobile-menu" class="md:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -100,14 +106,14 @@
         <!-- Menú móvil -->
         <div id="mobile-menu"
             class="hidden md:hidden fixed top-16 left-0 w-full bg-white/10 dark:bg-gray-900/10 shadow-lg z-50">
-            <nav class="flex flex-col space-y-3 p-4">
-                <a href="index.html" class="cyber-button">Projects & Designs</a>
+            <nav aria-label="Mobile" class="flex flex-col space-y-3 p-4">
+                <a href="index.html" class="cyber-button">Projects &amp; Designs</a>
                 <a href="contact.html" class="cyber-button">Links</a>
             </nav>
         </div>
 
         <!-- Main content -->
-        <main class="container mx-auto p-4 pt-24">
+        <main id="main" class="container mx-auto p-4 pt-24">
             <section
                 class="scroll-reveal relative flex flex-col items-center min-h-screen py-12 md:py-20 overflow-hidden mt-4 md:mt-8">
 
@@ -124,7 +130,7 @@
 
                     <div class="w-full flex flex-col gap-4">
 
-                        <a href="https://ngobrolyuk.com" target="_blank" class="cyber-button block w-full">
+                        <a href="https://ngobrolyuk.com" target="_blank" rel="noopener noreferrer" class="cyber-button block w-full">
                             Spanish Classes (ask for Profe Marcos)
                         </a>
 
