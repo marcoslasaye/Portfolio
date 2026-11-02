@@ -182,12 +182,18 @@ async function main() {
   }
 
   // Imagen de preview para og:image / twitter:image (1200x630, formato social).
+  // Los originales pueden no estar en el repo (se limpian para ahorrar espacio),
+  // asi que esto es best-effort: si no esta el fuente, se conserva el preview actual.
   const previewSource = path.join(SRC_DIR, 'AerialView_BlueCoralKarimunjawa_min.jpg');
-  await sharp(previewSource, { failOn: 'none' })
-    .resize({ width: 1200, height: 630, fit: 'cover' })
-    .jpeg({ quality: 82, mozjpeg: true })
-    .toFile(path.join(SRC_DIR, 'preview.jpg'));
-  console.log('preview.jpg generado (1200x630) para og:image');
+  try {
+    await sharp(previewSource, { failOn: 'none' })
+      .resize({ width: 1200, height: 630, fit: 'cover' })
+      .jpeg({ quality: 82, mozjpeg: true })
+      .toFile(path.join(SRC_DIR, 'preview.jpg'));
+    console.log('preview.jpg generado (1200x630) para og:image');
+  } catch {
+    console.log('preview.jpg: sin original disponible, se conserva el existente');
+  }
 
   await writeFile(
     path.join(OUT_DIR, 'manifest.json'),
