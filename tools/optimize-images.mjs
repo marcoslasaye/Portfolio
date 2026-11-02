@@ -181,6 +181,13 @@ async function main() {
     );
   }
 
+  if (manifest.length === 0) {
+    console.log(
+      '\nNo hay originales disponibles (los ya convertidos se limpian del repo).\nNada que hacer: se conserva el manifest y los .webp existentes.'
+    );
+    return;
+  }
+
   // Imagen de preview para og:image / twitter:image (1200x630, formato social).
   // Los originales pueden no estar en el repo (se limpian para ahorrar espacio),
   // asi que esto es best-effort: si no esta el fuente, se conserva el preview actual.
