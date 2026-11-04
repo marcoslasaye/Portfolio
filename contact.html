@@ -14,39 +14,26 @@
     <meta property="og:title" content="Marcos Lopez Sapitri - Links">
     <meta property="og:description"
         content="Connect with Marcos Lopez Sapitri. Access my latest projects, social media, and contact links.">
-    <meta property="og:image" content="img/preview.jpg">
+    <meta property="og:image" content="https://marcoslasaye.github.io/Portfolio/img/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:url" content="https://marcoslasaye.github.io/Portfolio/contact.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Marcos Lopez Sapitri - Links">
     <meta name="twitter:description"
         content="Connect with Marcos Lopez Sapitri. Access my latest projects, social media, and contact links.">
-    <meta name="twitter:image" content="img/preview.jpg">
+    <meta name="twitter:image" content="https://marcoslasaye.github.io/Portfolio/img/preview.jpg">
     <link rel="canonical" href="https://marcoslasaye.github.io/Portfolio/contact.html">
 
     <!-- Estilos y fuentes -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.min.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        ubuntu: ['Ubuntu', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <link rel="preload" href="fonts/orbitron-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Tailwind compilado: despues de main.css para preservar la cascada actual -->
+    <link rel="stylesheet" href="css/tailwind.css">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
@@ -70,11 +57,16 @@
         ]
     }
     </script>
+    <!-- Sin JS, el contenido no debe quedar invisible -->
+    <noscript>
+        <style>
+            .scroll-reveal { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
 </head>
 
-<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
-
-    <body id="top" class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body id="top" class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <a href="#main" class="skip-link">Skip to content</a>
         <!-- Fondo de estrellas -->
         <div class="star-bg"></div>
 
@@ -83,15 +75,19 @@
             class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 dark:bg-gray-900/10 border-b border-white/20 dark:border-gray-700/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700">
             <div class="container mx-auto flex justify-between items-center p-4">
 
-                <nav class="hidden md:flex w-full space-x-4 lg:space-x-10 items-center justify-center">
-                    <a href="index.html" class="cyber-button">Projects & Designs</a>
+                <nav aria-label="Main" class="hidden md:flex w-full space-x-4 lg:space-x-10 items-center justify-center">
+                    <a href="index.html" class="cyber-button">Projects &amp; Designs</a>
                     <a href="contact.html" class="cyber-button">Contact</a>
                 </nav>
 
                 <!-- Botón hamburguesa -->
                 <div class="flex items-center space-x-4">
-                    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                        <i class="fas fa-bars"></i>
+                    <button id="menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+                        aria-controls="mobile-menu" class="md:hidden text-white focus:outline-none">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" aria-hidden="true" focusable="false">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -100,31 +96,31 @@
         <!-- Menú móvil -->
         <div id="mobile-menu"
             class="hidden md:hidden fixed top-16 left-0 w-full bg-white/10 dark:bg-gray-900/10 shadow-lg z-50">
-            <nav class="flex flex-col space-y-3 p-4">
-                <a href="index.html" class="cyber-button">Projects & Designs</a>
+            <nav aria-label="Mobile" class="flex flex-col space-y-3 p-4">
+                <a href="index.html" class="cyber-button">Projects &amp; Designs</a>
                 <a href="contact.html" class="cyber-button">Links</a>
             </nav>
         </div>
 
         <!-- Main content -->
-        <main class="container mx-auto p-4 pt-24">
+        <main id="main" class="container mx-auto p-4 pt-24">
             <section
-                class="scroll-reveal relative flex flex-col items-center min-h-screen py-12 md:py-20 overflow-hidden mt-4 md:mt-8">
+                class="hero relative flex flex-col items-center min-h-screen py-12 md:py-20 overflow-hidden mt-4 md:mt-8">
 
                 <div class="relative z-10 w-full max-w-md px-6 flex flex-col items-center">
 
                     <div
                         class="w-24 h-24 mb-4 rounded-full overflow-hidden border-2 border-[#39ff14] shadow-[0_0_15px_rgba(57,255,20,0.6)]">
-                        <img src="img/marcoslasaye_profile.png" alt="Foto de Marcos" class="w-full h-full object-cover">
+                        <img src="img/optimized/marcoslasaye_profile.webp" alt="Foto de Marcos" width="192" height="192" loading="lazy" decoding="async" class="w-full h-full object-cover">
                     </div>
 
                     <h1 class="text-2xl md:text-3xl font-extrabold cyber-text mb-2">@marcoslasaye</h1>
-                    <p class="text-md md:text-lg cyber-text mb-8 text-center">Desarrollo Web, Marketing Digital y
+                    <p class="text-base md:text-lg cyber-text mb-8 text-center">Desarrollo Web, Marketing Digital y
                         Proyectos</p>
 
                     <div class="w-full flex flex-col gap-4">
 
-                        <a href="https://ngobrolyuk.com" target="_blank" class="cyber-button block w-full">
+                        <a href="https://ngobrolyuk.com" target="_blank" rel="noopener noreferrer" class="cyber-button block w-full">
                             Spanish Classes (ask for Profe Marcos)
                         </a>
 
@@ -143,7 +139,7 @@
             </div>
         </footer>
 
-        <script src="js/main.min.js"></script>
+        <script src="js/main.js" defer></script>
 
     </body>
 

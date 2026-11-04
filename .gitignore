@@ -1,0 +1,10 @@
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Metadata de herramientas locales (skill registry), no es parte del sitio
+.atl/
+
+# Config local de Engram (nombre canonico del proyecto)
+.engram/

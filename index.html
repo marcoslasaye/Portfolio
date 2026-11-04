@@ -15,39 +15,26 @@
     <meta property="og:title" content="Marcos Lopez Sapitri - Creative Professional Portfolio">
     <meta property="og:description"
         content="Creative portfolio showcasing projects in design, marketing, and content creation.">
-    <meta property="og:image" content="img/preview.jpg">
+    <meta property="og:image" content="https://marcoslasaye.github.io/Portfolio/img/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:url" content="https://marcoslasaye.github.io/Portfolio/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Marcos Lopez Sapitri - Creative Professional Portfolio">
     <meta name="twitter:description"
         content="Creative portfolio showcasing projects in design, marketing, and content creation.">
-    <meta name="twitter:image" content="img/preview.jpg">
+    <meta name="twitter:image" content="https://marcoslasaye.github.io/Portfolio/img/preview.jpg">
     <link rel="canonical" href="https://marcoslasaye.github.io/Portfolio/">
 
     <!-- Estilos y fuentes -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Poppins:wght@400;600;800&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.min.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        ubuntu: ['Ubuntu', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <link rel="preload" href="fonts/orbitron-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Tailwind compilado: despues de main.css para preservar la cascada actual -->
+    <link rel="stylesheet" href="css/tailwind.css">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G71M1EQ936"></script>
@@ -71,10 +58,16 @@
         ]
     }
     </script>
+    <!-- Sin JS, el contenido no debe quedar invisible -->
+    <noscript>
+        <style>
+            .scroll-reveal { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
 </head>
 
-
 <body id="top" class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <a href="#main" class="skip-link">Skip to content</a>
     <!-- Fondo de estrellas -->
     <div class="star-bg"></div>
 
@@ -83,15 +76,19 @@
         class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/10 dark:bg-gray-900/10 border-b border-white/20 dark:border-gray-700/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-700">
         <div class="container mx-auto flex justify-between items-center p-4">
 
-            <nav class="hidden md:flex w-full space-x-4 lg:space-x-10 items-center justify-center">
-                <a href="index.html" class="cyber-button">Projects & Designs</a>
+            <nav aria-label="Main" class="hidden md:flex w-full space-x-4 lg:space-x-10 items-center justify-center">
+                <a href="index.html" class="cyber-button">Projects &amp; Designs</a>
                 <a href="contact.html" class="cyber-button">Contact</a>
             </nav>
 
             <!-- Botón hamburguesa -->
             <div class="flex items-center space-x-4">
-                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
+                <button id="menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+                    aria-controls="mobile-menu" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" aria-hidden="true" focusable="false">
+                        <path d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -100,29 +97,29 @@
     <!-- Menú móvil -->
     <div id="mobile-menu"
         class="hidden md:hidden fixed top-16 left-0 w-full bg-white/10 dark:bg-gray-900/10 shadow-lg z-50">
-        <nav class="flex flex-col space-y-3 p-4">
-            <a href="index.html" class="cyber-button">Projects & Designs</a>
+        <nav aria-label="Mobile" class="flex flex-col space-y-3 p-4">
+            <a href="index.html" class="cyber-button">Projects &amp; Designs</a>
             <a href="contact.html" class="cyber-button">Contact</a>
         </nav>
     </div>
 
     <!-- Main content -->
-    <main class="container mx-auto p-4 pt-24">
+    <main id="main" class="container mx-auto p-4 pt-24">
         <!-- Hero section -->
         <section
-            class="scroll-reveal relative text-center py-12 md:py-20 flex flex-col items-center gap-6 md:gap-8 overflow-hidden mt-4 md:mt-8">
-            <div class="jp-matrix" id="matrix-container"></div>
+            class="hero relative text-center py-12 md:py-20 flex flex-col items-center gap-6 md:gap-8 overflow-hidden mt-4 md:mt-8">
+            <div class="jp-matrix" id="matrix-container" aria-hidden="true"></div>
             <div class="relative z-10">
                 <h1 class="text-3xl md:text-5xl font-extrabold cyber-text tracking-wide px-4">
                     Marcos López Sapitri — Creative Professional
                 </h1>
                 <p class="text-lg md:text-2xl cyber-text mt-4 px-4">
-                    Showcasing projects in design, marketing & content creation.
+                    Showcasing projects in design, marketing &amp; content creation.
                 </p>
             </div>
-            <button type="button" class="cyber-button mt-8 z-10">
+            <a href="#projects" class="cyber-button mt-8 z-10">
                 Scroll down to see my work
-            </button>
+            </a>
         </section>
 
         <!-- Projects section -->
@@ -133,105 +130,96 @@
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <a href="https://linktr.ee/Bamboo.Oasis.Bali" target="_blank">
-                            <img src="img/Banner-Bamboo-Oasis-1x1mt_page-0001.jpg" alt="Bamboo Oasis Resort - Bali"
-                                class="w-full h-48 object-cover">
+                        <a href="https://linktr.ee/Bamboo.Oasis.Bali" target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/Banner-Bamboo-Oasis-1x1mt_page-0001.webp" alt="Bamboo Oasis Resort - Bali" width="200" height="100" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Bamboo Oasis Resort - Bali</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Resort Online Presence</p>
+                                <p class="text-gray-400">Resort Online Presence</p>
                             </div>
                         </a>
                     </div>
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <a href="https://drive.google.com/drive/folders/1G-6CsFR1H-oXgBSjL4efZahMKX1egk8z?usp=sharing"
-                            target="_blank">
-                            <img src="img/Content_Calendar.png" alt="Content Calendar Marketing"
-                                class="w-full h-48 object-cover">
+                            target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/Content_Calendar.webp" alt="Content Calendar Marketing" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">2 Content Calendar Examples</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Google Drive</p>
+                                <p class="text-gray-400">Google Drive</p>
                             </div>
                         </a>
                     </div>
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <a href="https://www.canva.com/design/DAGUwHI8tDE/ROYe2EpL7exb8LO_mc6VBA/watch?utm_content=DAGUwHI8tDE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h10df0e9cf3"
-                            target="_blank">
-                            <img src="img/Archipielago.jpg" alt="Property in Bali Presentation"
-                                class="w-full h-48 object-cover">
+                            target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/Archipielago.webp" alt="Property in Bali Presentation" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Land in Kintamani, Bali</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Canva Public View Link</p>
+                                <p class="text-gray-400">Canva Public View Link</p>
                             </div>
                         </a>
                     </div>
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <a href="https://www.canva.com/design/DAGOQzxKFKQ/hvk8Hgz_ZyY1xRCE0dHUHw/watch?utm_content=DAGOQzxKFKQ&utm_campaign=designshare&utm_medium=link&utm_source=editor"
-                            target="_blank">
-                            <img src="img/AerialView_BlueCoralKarimunjawa_min.jpg"
-                                alt="Aerial View Blue Coral Karimunjawa" class="w-full h-48 object-cover">
+                            target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/AerialView_BlueCoralKarimunjawa_min.webp" alt="Aerial View Blue Coral Karimunjawa" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Blue Coral Karimunjawa</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Leasehold Project (English)</p>
+                                <p class="text-gray-400">Leasehold Project (English)</p>
                             </div>
                         </a>
                     </div>
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <a href="https://meliwood.my.canva.site/" target="_blank">
-                            <img src="img/MeliwoodBali_Logo.png" alt="Meliwood Furniture & Decor"
-                                class="w-full h-48 object-cover">
+                        <a href="https://meliwood.my.canva.site/" target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/MeliwoodBali_Logo.webp" alt="Meliwood Furniture &amp; Decor" width="500" height="250" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2 dark:text-white">Meliwood Furniture & Decor</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Link Page</p>
+                                <h3 class="text-xl font-bold mb-2 dark:text-white">Meliwood Furniture &amp; Decor</h3>
+                                <p class="text-gray-400">Link Page</p>
                             </div>
                         </a>
                     </div>
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <a href="https://www.youtube.com/@PeekoSafari" target="_blank">
-                            <img src="img/PeekoSafari_YoutubeChannel.png" alt="Peeko Safari - YouTube Channel"
-                                class="w-full h-48 object-cover">
+                        <a href="https://www.youtube.com/@PeekoSafari" target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/PeekoSafari_YoutubeChannel.webp" alt="Peeko Safari - YouTube Channel" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Peeko Safari</h3>
-                                <p class="text-gray-600 dark:text-gray-400">YouTube Channel Branding</p>
+                                <p class="text-gray-400">YouTube Channel Branding</p>
                             </div>
                         </a>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <a href="https://www.instagram.com/marcoslasaye" target="_blank">
-                            <img src="./img/marcoslasayeIG.png" alt="Instagram Profile - Marcoslasaye"
-                                class="w-full h-48 object-cover">
+                        <a href="https://www.instagram.com/marcoslasaye" target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/marcoslasayeIG.webp" alt="Instagram Profile - Marcoslasaye" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Marcoslasaye</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Personal Brand Instagram Profile</p>
+                                <p class="text-gray-400">Personal Brand Instagram Profile</p>
                             </div>
                         </a>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <a href="https://marcoslasaye.github.io/Archipielago.Group" target="_blank">
-                            <img src="./img/Archipielago_Web.png" alt="Archipielago Group - Website"
-                                class="w-full h-48 object-cover">
+                        <a href="https://marcoslasaye.github.io/Archipielago.Group" target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/Archipielago_Web.webp" alt="Archipielago Group - Website" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover object-top">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Archipielago Group</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Website</p>
+                                <p class="text-gray-400">Website</p>
                             </div>
                         </a>
                     </div>
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <a href="https://marcosinbali.blogspot.com/" target="_blank">
-                            <img src="img/Travel_Blog_Logo.png" alt="Marcoslasaye Bali Travel Blog"
-                                class="w-full h-48 object-cover">
+                        <a href="https://marcosinbali.blogspot.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="img/optimized/Travel_Blog_Logo.webp" alt="Marcoslasaye Bali Travel Blog" width="500" height="250" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Marcoslasaye in Bali</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Travel Blog</p>
+                                <p class="text-gray-400">Travel Blog</p>
                             </div>
                         </a>
                     </div>
@@ -247,84 +235,79 @@
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <div class="image-wrap">
-                            <img src="img/KronosTech-Logo-500x500.png" alt="KronoTech Logo"
-                                class="w-full h-48 object-cover">
+                            <img src="img/optimized/KronosTech-Logo-500x500.webp" alt="KronoTech Logo" width="500" height="250" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-2 dark:text-white">KronoTech.ID</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Logo</p>
+                            <p class="text-gray-400">Logo</p>
                         </div>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <div class="image-wrap">
-                            <img src="img/TheChampionBook.png" alt="The Champion Book Logo"
-                                class="w-full h-48 object-cover">
+                            <img src="img/optimized/TheChampionBook.webp" alt="The Champion Book Logo" width="500" height="250" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-2 dark:text-white">The ChampionBook</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Logo</p>
+                            <p class="text-gray-400">Logo</p>
                         </div>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <div class="image-wrap">
-                            <img src="img/TemplateGuestoftheDay2.png" alt="Guest Of The Day - Bali Resort Template"
-                                class="w-full h-48 object-cover">
+                            <img src="img/optimized/TemplateGuestoftheDay2.webp" alt="Guest Of The Day - Bali Resort Template" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-2 dark:text-white">Guest Of The Day - Bali Resort</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Stories</p>
+                            <p class="text-gray-400">Stories</p>
                         </div>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <div class="image-wrap">
-                            <img src="img/moodboard.png" alt="Moodboard Design" class="w-full h-48 object-cover">
+                            <img src="img/optimized/moodboard.webp" alt="Moodboard Design" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-2 dark:text-white">Moodboard</h3>
-                            <p class="text-gray-600 dark:text-gray-400">1080 x 1080 px</p>
+                            <p class="text-gray-400">1080 x 1080 px</p>
                         </div>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <div class="image-wrap">
-                            <img src="img/infopost.png" alt="Info Post Design" class="w-full h-48 object-cover">
+                            <img src="img/optimized/infopost.webp" alt="Info Post Design" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-2 dark:text-white">Info-Post</h3>
-                            <p class="text-gray-600 dark:text-gray-400">1080 x 1080 px</p>
+                            <p class="text-gray-400">1080 x 1080 px</p>
                         </div>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <div class="image-wrap">
-                            <img src="img/leftorright.png" alt="Left or Right Post Design"
-                                class="w-full h-48 object-cover">
+                            <img src="img/optimized/leftorright.webp" alt="Left or Right Post Design" width="800" height="400" loading="lazy" decoding="async" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-2 dark:text-white">Left or Right Post</h3>
-                            <p class="text-gray-600 dark:text-gray-400">1080 x 1080 px</p>
+                            <p class="text-gray-400">1080 x 1080 px</p>
                         </div>
                     </div>
 
                     <div
                         class="cyber-card rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                         <a href="https://drive.google.com/drive/folders/1SJROvyOTHiLs45WzFJwFk9gHyIAdwOwK?usp=sharing"
-                            target="_blank">
+                            target="_blank" rel="noopener noreferrer">
                             <div class="image-wrap">
-                                <img src="img/point-down.png" alt="More Posts Examples"
-                                    class="w-full h-48 object-contain p-4">
+                                <img src="img/optimized/point-down.webp" alt="More Posts Examples" width="160" height="160" loading="lazy" decoding="async" class="w-full h-48 object-contain p-4">
                             </div>
                             <div class="p-4">
                                 <h3 class="text-xl font-bold mb-2 dark:text-white">Click me for more</h3>
-                                <p class="text-gray-600 dark:text-gray-400">Google Drive</p>
+                                <p class="text-gray-400">Google Drive</p>
                             </div>
                         </a>
                     </div>
@@ -337,13 +320,17 @@
     <footer class="scroll-reveal bg-black dark:bg-gray-900 shadow-md py-6">
         <div class="container mx-auto text-center flex flex-col items-center gap-4">
             <a href="#top" class="cyber-button">
-                <i class="fas fa-arrow-up mr-2"></i> Go Up
+                <svg class="inline-block align-middle w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true" focusable="false">
+                    <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg> Go Up
             </a>
             <p class="cyber-text">© 2024 Marcos Lopez Sapitri. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.min.js"></script>
+    <script src="js/main.js" defer></script>
 
 </body>
 
